@@ -2,10 +2,10 @@
 {
     internal class Program
     {
-        static string ShowColor()
+        static string ShowColor(string username, int userage)
         {
             
-            Console.WriteLine("Напишите свой любимы цвет на английском с меленькой буквы");
+            Console.WriteLine("{0} Напишите свой любимы цвет на английском с меленькой буквы", username);
 
             var color = Console.ReadLine();
 
@@ -43,6 +43,7 @@
 
             }
 
+       
             return color;
         }
 
@@ -118,12 +119,12 @@
             GetArrayFromConsole();
             //-----------------------------------------------------------------------
 
-            (string Name, string[] Dishes) User;
+            (string UserName, string[] Dishes) User;
 
             User.Dishes = new string[5];
 
             Console.WriteLine("Введите свое имя: ");
-            User.Name = Console.ReadLine();
+            User.UserName = Console.ReadLine();
 
             Console.WriteLine("Введите 5 своих любимых блюд.");
             for (int i = 0; i <= User.Dishes.Length; i++)
@@ -144,11 +145,28 @@
             }
 
             //-----------------------------------------------------------------------
+            var (name,age) = ("Александр", 27);
+
+            Console.WriteLine("Мое имя: {0}", name);
+            Console.WriteLine("Мой возраст: {0}", age);
+
+            Console.Write("Введите имя: ");
+            name = Console.ReadLine();
+                        
+            Console.Write("Введите возраст с цифрами: ");
+            age = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Мое имя: {0}", name);
+            Console.WriteLine("Мой возраст: {0}", age);
+
+            Console.ReadKey();
+
+            //-----------------------------------------------------------------------
             var UserColors = new string[3];
 
             for (int i = 0; i < UserColors.Length; i++)
             {
-                UserColors[i] = ShowColor();
+                UserColors[i] = ShowColor(name,age);
                 
             }
 
@@ -162,6 +180,7 @@
             Console.ReadLine();
 
             //-----------------------------------------------------------------------
+
 
             
 
