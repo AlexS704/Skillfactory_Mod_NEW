@@ -5,7 +5,7 @@
         static string ShowColor(string username, int userage)
         {
             
-            Console.WriteLine("{0} Напишите свой любимы цвет на английском с меленькой буквы", username);
+            Console.WriteLine("{0}, возраст:{1}" + $"{Environment.NewLine}Напишите свой любимы цвет на английском с меленькой буквы", username, userage);
 
             var color = Console.ReadLine();
 
@@ -47,7 +47,11 @@
             return color;
         }
 
+        //--------------------------------------------------------
+
        static string GetDataFromConsole() => Console.ReadLine();
+
+        //--------------------------------------------------------
 
         static int[] GetArrayFromConsole()
         {
@@ -58,22 +62,7 @@
                 Console.WriteLine("Введите элемент массива номер {0} ", i + 1);
                 resoult[i] = int.Parse(Console.ReadLine());                                               
             }
-
-            //Сортировка массива
-            int temp;
-
-            for (int i = 0; i < resoult.Length; i++)
-            {
-                for (int j = i + 1; j < resoult.Length; j++)
-                {
-                    if (resoult[i] > resoult[j])
-                    {
-                        temp = resoult[i];
-                        resoult[i] = resoult[j];
-                        resoult[j] = temp;
-                    }
-                }
-            }
+                                   
             //---------------------------------------
             /*//Сортировка одномерного массива
 
@@ -113,10 +102,45 @@
             return resoult;
         }
 
+        //--------------------------------------------------------------
+
+        static int[] SortArray(int[] arr)
+        {
+            //Сортировка массива
+            int temp;
+
+            for (int i = 0; i < GetArrayFromConsole().Length; i++)
+            {
+                for (int j = i + 1; j < GetArrayFromConsole().Length; j++)
+                {
+                    if (GetArrayFromConsole()[i] > GetArrayFromConsole()[j])
+                    {
+                        temp = GetArrayFromConsole()[i];
+                        GetArrayFromConsole()[i] = GetArrayFromConsole()[j];
+                        GetArrayFromConsole()[j] = temp;
+                    }
+                }
+            }
+            return GetArrayFromConsole();
+        }
+
+   
+
+        static void ShowColorsArray(string[] UserColors)
+        {
+            Console.WriteLine("Ваш любимый цвет");
+            foreach (var resoultColor in UserColors)
+            {
+                Console.WriteLine(resoultColor);
+            }
+        }
+            
         static void Main(string[] args)
         {
 
-            GetArrayFromConsole();
+            //GetArrayFromConsole();
+            SortArray(GetArrayFromConsole());
+
             //-----------------------------------------------------------------------
 
             (string UserName, string[] Dishes) User;
@@ -170,7 +194,7 @@
                 
             }
 
-            Console.WriteLine("Ваши любимые цвета: ");
+            /*Console.WriteLine("Ваши любимые цвета: ");
 
             foreach (var resoultColor in UserColors)
             {
@@ -178,7 +202,7 @@
             }
 
             Console.ReadLine();
-
+            */
             //-----------------------------------------------------------------------
 
 
