@@ -5,8 +5,7 @@
         static string ShowColor(string username, int userage)
         {
             
-            Console.WriteLine("{0}, {1}. Напишите свой любимы цвет на английском с меленькой буквы",
-                username, userage);
+            Console.WriteLine("{0}, возраст:{1}" + $"{Environment.NewLine}Напишите свой любимы цвет на английском с меленькой буквы", username, userage);
 
             var color = Console.ReadLine();
 
@@ -48,33 +47,24 @@
             return color;
         }
 
+        
+        //---------------------------------------------------------------------------
+
        static string GetDataFromConsole() => Console.ReadLine();
 
-        static int[] GetArrayFromConsole()
+        //---------------------------------------------------------------------------
+
+        static int[] GetArrayFromConsole(int nam = 5)
         {
-            var resoult = new int[5];
+            var resoult = new int[nam];
+           
                         
             for (int i = 0; i < resoult.Length; i++)
             {
                 Console.WriteLine("Введите элемент массива номер {0} ", i + 1);
                 resoult[i] = int.Parse(Console.ReadLine());                                               
             }
-
-            //Сортировка массива
-            int temp;
-
-            for (int i = 0; i < resoult.Length; i++)
-            {
-                for (int j = i + 1; j < resoult.Length; j++)
-                {
-                    if (resoult[i] > resoult[j])
-                    {
-                        temp = resoult[i];
-                        resoult[i] = resoult[j];
-                        resoult[j] = temp;
-                    }
-                }
-            }
+                                   
             //---------------------------------------
             /*//Сортировка одномерного массива
 
@@ -106,18 +96,108 @@
             */
             //---------------------------------------
 
-            for (int i = 0; i < resoult.Length; i++)
+            /*for (int i = 0; i < resoult.Length; i++)
             {
                 Console.WriteLine(resoult[i]);
-            }
+            }*/
                         
             return resoult;
         }
 
+        //----------------------------------------------------------------------------
+
+        static int[] SortArray(int[] resoult)
+        {
+            //Сортировка массива
+            int temp;
+
+            for (int i = 0; i < resoult.Length; i++)
+            {
+                for (int j = i + 1; j < resoult.Length; j++)
+                {
+                    if (resoult[i] > resoult[j])
+                    {
+                        temp = resoult[i];
+                        resoult[i] = resoult[j];
+                        resoult[j] = temp;
+                    }
+                }
+            }
+          
+            return resoult;
+        }
+           
+        //----------------------------------------------------------------------------
+
+        static void ShowColors(string username = "Alex", params string[] favcolors)
+        {
+            Console.WriteLine("Ваши любимые цвета: ");
+            foreach (var color in favcolors)
+            {
+                Console.WriteLine(color);
+            }
+        }
+
+        //----------------------------------------------------------------------------
+
+        static void ShowArray(int[] array, bool IsSort = false)
+        {
+            var temp = array;
+            if (IsSort)
+            {
+                temp = SortArray(array);
+            }
+
+            foreach(var item in temp)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        //----------------------------------------------------------------------------
+
+        static void ChangeAge(int age)
+        {
+            Console.WriteLine("Введите свой возраст");
+            age = Convert.ToInt32(Console.ReadLine());
+            
+        }
+
+        //----------------------------------------------------------------------------
+        static void ChangeName(ref string name)
+        {
+            Console.WriteLine("Введите свой возраст");
+            name = Console.ReadLine();
+            
+        }
+
+
+        //----------------------------------------------------------------------------
         static void Main(string[] args)
         {
 
-            GetArrayFromConsole();
+            var Myname = "Алекс";
+            Console.WriteLine(Myname);
+
+            ChangeName(ref Myname);
+
+            Console.WriteLine(Myname);
+            Console.ReadKey();
+
+
+            int Myage = 32;
+            Console.WriteLine(Myage);
+            
+            ChangeAge(Myage);
+
+            Console.WriteLine(Myage);
+            Console.ReadKey();            
+            //-----------------------------------------------------------------------
+            
+            var array = GetArrayFromConsole(10);
+            ShowArray(array,true);
+
+          
             //-----------------------------------------------------------------------
 
             (string UserName, string[] Dishes) User;
@@ -163,27 +243,28 @@
             Console.ReadKey();
 
             //-----------------------------------------------------------------------
-            var UserColors = new string[3];
+            var favcolors = new string[3];
 
-            for (int i = 0; i < UserColors.Length; i++)
+            for (int i = 0; i < favcolors.Length; i++)
             {
-                UserColors[i] = ShowColor(name,age);
+                favcolors[i] = ShowColor(name,age);
                 
             }
 
-            Console.WriteLine("Ваши любимые цвета: ");
-
-            foreach (var resoultColor in UserColors)
+            ShowColors();
+            
+            /*Console.WriteLine("Ваши любимые цвета: ");
+            foreach (var color in favcolors)
             {
-                Console.WriteLine(resoultColor);
+                Console.WriteLine(color);
             }
-
-            Console.ReadLine();
+            */
+            Console.ReadKey();
 
             //-----------------------------------------------------------------------
 
-
             
+          
 
 
 
