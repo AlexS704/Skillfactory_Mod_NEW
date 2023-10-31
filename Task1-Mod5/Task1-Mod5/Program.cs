@@ -5,7 +5,8 @@
         static string ShowColor(string username, int userage)
         {
             
-            Console.WriteLine("{0} Напишите свой любимы цвет на английском с меленькой буквы", username);
+            Console.WriteLine("{0}, {1}. Напишите свой любимы цвет на английском с меленькой буквы",
+                username, userage);
 
             var color = Console.ReadLine();
 
