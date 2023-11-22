@@ -1,4 +1,6 @@
-﻿namespace Task1_Mod5
+﻿using System.Net.Sockets;
+
+namespace Task1_Mod5
 {
     internal class Program
     {
@@ -171,18 +173,39 @@
             
         }
 
+        void GetAge(out string Name,  out byte age)
+        {
+            Name = "Alexandr";
+            age = 32;
+
+        }
+
+        //----------------------------------------------------------------------------
+
+        static void GetName(out string name, out string oldname)
+        {
+            oldname = "Александр";
+            Console.WriteLine("Введите имя");
+            name = Console.ReadLine();
+        }
+
 
         //----------------------------------------------------------------------------
         static void Main(string[] args)
         {
 
-            var Myname = "Алекс";
-            Console.WriteLine(Myname);
+            GetName(out string name, out var oldname);
 
-            ChangeName(ref Myname);
+            Console.WriteLine(name);
+            Console.WriteLine(oldname);
 
-            Console.WriteLine(Myname);
-            Console.ReadKey();
+            //var Myname = "Алекс";
+            //Console.WriteLine(Myname);
+
+            //ChangeName(ref Myname);
+
+            //Console.WriteLine(Myname);
+            //Console.ReadKey();
 
 
             int Myage = 32;
