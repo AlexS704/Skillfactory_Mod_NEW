@@ -1,12 +1,15 @@
-﻿using System.Net.Sockets;
-
+﻿
 namespace Task1_Mod5
 {
     internal class Program
     {
-        static string ShowColor(string username, int userage)
+        static string ShowColorsUser(string username, int userage)
+        //static - модификатор метода
+        //void - тип данных, означающий "ничего", "пустой" - с таким типом данных ничего не возвращается в метод
+        //при указании конкретного типа данных (например string) в названии метода должны быть указаны параметры
+
         {
-            
+
             Console.WriteLine("{0}, возраст:{1}" + $"{Environment.NewLine}Напишите свой любимы цвет на английском с меленькой буквы", username, userage);
 
             var color = Console.ReadLine();
@@ -131,7 +134,7 @@ namespace Task1_Mod5
            
         //----------------------------------------------------------------------------
 
-        static void ShowColors(string username = "Alex", params string[] favcolors)
+        static void ShowColor(string username = "Alex", params string[] favcolors)
         {
             Console.WriteLine("Ваши любимые цвета: ");
             foreach (var color in favcolors)
@@ -182,9 +185,9 @@ namespace Task1_Mod5
 
         //----------------------------------------------------------------------------
 
-        static void GetName(out string name, out string oldname)
+        static void GetName(ref string name)
         {
-            oldname = "Александр";
+           // oldname = "Александр";
             Console.WriteLine("Введите имя");
             name = Console.ReadLine();
         }
@@ -193,11 +196,13 @@ namespace Task1_Mod5
         //----------------------------------------------------------------------------
         static void Main(string[] args)
         {
+/*
+            string name = Console.ReadLine();
 
-            GetName(out string name, out var oldname);
+            GetName(ref name);
 
-            Console.WriteLine(name);
-            Console.WriteLine(oldname);
+            Console.WriteLine(GetName);
+           // Console.WriteLine(oldname);
 
             //var Myname = "Алекс";
             //Console.WriteLine(Myname);
@@ -211,7 +216,7 @@ namespace Task1_Mod5
             int Myage = 32;
             Console.WriteLine(Myage);
             
-            ChangeAge(Myage);
+            //ChangeAge(Myage);
 
             Console.WriteLine(Myage);
             Console.ReadKey();            
@@ -222,68 +227,68 @@ namespace Task1_Mod5
 
           
             //-----------------------------------------------------------------------
+*/
+            (string UserName, string[] Dishes) DishesUser;
 
-            (string UserName, string[] Dishes) User;
-
-            User.Dishes = new string[5];
+            DishesUser.Dishes = new string[5];
 
             Console.WriteLine("Введите свое имя: ");
-            User.UserName = Console.ReadLine();
+            DishesUser.UserName = Console.ReadLine();
 
             Console.WriteLine("Введите 5 своих любимых блюд.");
-            for (int i = 0; i <= User.Dishes.Length; i++)
+            for (int i = 0; i <= DishesUser.Dishes.Length; i++)
             {                
                 
-                if (i < User.Dishes.Length)
+                if (i < DishesUser.Dishes.Length)
                 {
                     Console.Write("Блюдо {0}: ", i + 1);
-                    User.Dishes[i] = Console.ReadLine();
+                    DishesUser.Dishes[i] = Console.ReadLine();
                 }
                 
             }
             Console.WriteLine("Список ваших любимых блюд: ");
 
-            foreach (var resoult in User.Dishes)
+            foreach (var resoult in DishesUser.Dishes)
             {
                 Console.WriteLine(resoult);
             }
 
             //-----------------------------------------------------------------------
-            var (name,age) = ("Александр", 27);
+            var (name_new,age) = ("Александр", 27);
 
-            Console.WriteLine("Мое имя: {0}", name);
+            Console.WriteLine("Мое имя: {0}", name_new);
             Console.WriteLine("Мой возраст: {0}", age);
 
             Console.Write("Введите имя: ");
-            name = Console.ReadLine();
+            name_new = Console.ReadLine();
                         
             Console.Write("Введите возраст с цифрами: ");
             age = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Мое имя: {0}", name);
+            Console.WriteLine("Мое имя: {0}", name_new);
             Console.WriteLine("Мой возраст: {0}", age);
 
             Console.ReadKey();
 
-            //-----------------------------------------------------------------------
+/*            //-----------------------------------------------------------------------
             var favcolors = new string[3];
 
             for (int i = 0; i < favcolors.Length; i++)
             {
-                favcolors[i] = ShowColor(name,age);
+                favcolors[i] = ShowColorsUser(name, age);
                 
             }
 
-            ShowColors();
+            ShowColor();
             
             /*Console.WriteLine("Ваши любимые цвета: ");
             foreach (var color in favcolors)
             {
                 Console.WriteLine(color);
             }
-            */
+            
             Console.ReadKey();
-
+*/
             //-----------------------------------------------------------------------
 
             
