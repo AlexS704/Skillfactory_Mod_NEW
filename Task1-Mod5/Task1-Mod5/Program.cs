@@ -187,12 +187,20 @@ namespace Task1_Mod5
 
         static void GetName(ref string name)
         {
-           // oldname = "Александр";
+            //oldname = "Александр";
             Console.WriteLine("Введите имя");
             name = Console.ReadLine();
         }
 
+        //---------------------------------------------------------------------------
 
+        static void GetArrayFromConsole(int[] array)
+        {
+
+        }
+
+
+        //----------------------------------------------------------------------------
         //----------------------------------------------------------------------------
         static void Main(string[] args)
         {
@@ -200,9 +208,13 @@ namespace Task1_Mod5
             string name = Console.ReadLine();
 
             GetName(ref name);
+            string name = Console.ReadLine();
+            GetName(ref name);
 
             Console.WriteLine(GetName);
            // Console.WriteLine(oldname);
+            Console.WriteLine(name);
+            //Console.WriteLine(oldname);
 
             //var Myname = "Алекс";
             //Console.WriteLine(Myname);
@@ -227,8 +239,8 @@ namespace Task1_Mod5
 
           
             //-----------------------------------------------------------------------
-*/
-            (string UserName, string[] Dishes) DishesUser;
+
+            (string UserName, string[] Dishes) DishesUser; //М5 - зд.1
 
             DishesUser.Dishes = new string[5];
 
