@@ -3,14 +3,14 @@ namespace Task1_Mod5
 {
     internal class Program
     {
-        static string ShowColorsUser(string username, int userage)
+        static string ShowColorsUser(string userName, int userAge)
         //static - модификатор метода
         //void - тип данных, означающий "ничего", "пустой" - с таким типом данных ничего не возвращается в метод
         //при указании конкретного типа данных (например string) в названии метода должны быть указаны параметры
 
         {
 
-            Console.WriteLine("{0}, возраст:{1}" + $"{Environment.NewLine}Напишите свой любимы цвет на английском с меленькой буквы", username, userage);
+            Console.WriteLine("{0}, возраст:{1}" + $"{Environment.NewLine}Напишите свой любимы цвет на английском с меленькой буквы", userName, userAge);
 
             var color = Console.ReadLine();
 
@@ -55,86 +55,89 @@ namespace Task1_Mod5
         
         //---------------------------------------------------------------------------
 
-       static string GetDataFromConsole() => Console.ReadLine();
+       static string GetDataFromConsole() => Console.ReadLine(); //такая запись возможна, только если в методе одна операция
 
         //---------------------------------------------------------------------------
 
-        static int[] GetArrayFromConsole(int nam = 5)
+        static int[] GetArrayFromConsole(int arrayDimension = 5)
         {
-            var resoult = new int[nam];
+            var arrayUser = new int[arrayDimension];
            
                         
-            for (int i = 0; i < resoult.Length; i++)
+            for (int i = 0; i < arrayUser.Length; i++)
             {
                 Console.WriteLine("Введите элемент массива номер {0} ", i + 1);
-                resoult[i] = int.Parse(Console.ReadLine());                                               
+                arrayUser[i] = int.Parse(Console.ReadLine());                                              
             }
-                                   
-            //---------------------------------------
-            /*//Сортировка одномерного массива
 
-            var arr = new int[] { 5, 6, 9, 1, 2, 3, 4 };
+            Console.WriteLine(arrayUser);
+
+            /*//Сортировка одномерного массива внутри метода
+            //Сортировка вынесена в метод SortArray
+
+            //var array = new int[] { 5, 6, 9, 1, 2, 3, 4 }; если задать массив напрямую
 
             int temp;
 
-            for (int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                for (int j = i + 1; j < arr.Length; j++)
+                for (int j = i + 1; j < array.Length; j++)
                 {
-                    if (arr[i] > arr[j])
+                    if (array[i] > array[j])
                     {
-                        temp = arr[i];
+                        temp = array[i];
 
-                        arr[i] = arr[j];
+                        array[i] = array[j];
 
-                        arr[j] = temp;
+                        array[j] = temp;
                     }
                     
                 }
             }
 
-            foreach (var item in arr)
+            foreach (var item in array)
             {
                 Console.Write(item);
                               
             }
-            */
+           
             //---------------------------------------
 
-            /*for (int i = 0; i < resoult.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                Console.WriteLine(resoult[i]);
-            }*/
-                        
-            return resoult;
+                Console.WriteLine(array[i]);
+            }
+            */            
+            return arrayUser;
         }
+          
 
         //----------------------------------------------------------------------------
 
-        static int[] SortArray(int[] resoult)
+        static int[] SortArray(int[] arrayUser)
         {
-            //Сортировка массива
+            //Сортировка принятого массива
             int temp;
 
-            for (int i = 0; i < resoult.Length; i++)
+            for (int i = 0; i < arrayUser.Length; i++)
             {
-                for (int j = i + 1; j < resoult.Length; j++)
+                for (int j = i + 1; j < arrayUser.Length; j++)
                 {
-                    if (resoult[i] > resoult[j])
+                    if (arrayUser[i] > arrayUser[j])
                     {
-                        temp = resoult[i];
-                        resoult[i] = resoult[j];
-                        resoult[j] = temp;
+                        temp = arrayUser[i];
+                        arrayUser[i] = arrayUser[j];
+                        arrayUser[j] = temp;
                     }
                 }
             }
           
-            return resoult;
+            return arrayUser;
         }
            
         //----------------------------------------------------------------------------
 
-        static void ShowColor(string username = "Alex", params string[] favcolors)
+        static void ShowColors(string userName = "Александр", params string[] favcolors)
         {
             Console.WriteLine("Ваши любимые цвета: ");
             foreach (var color in favcolors)
@@ -193,27 +196,46 @@ namespace Task1_Mod5
         }
 
         //---------------------------------------------------------------------------
-
-        static void GetArrayFromConsole(int[] array)
+        static void SortComplexArray(int[,] arr)
         {
-
+            int temp;
+            for (int i = 0; i <= arr.GetUpperBound(0); i++)
+            {
+                for (int j = 0; j <= arr.GetUpperBound(1); j++)
+                    for (int k = j + 1; k <= arr.GetUpperBound(1); k++)
+                        if (arr[i, j] > arr[i, k])
+                        {
+                            temp = arr[i, k];
+                            arr[i, k] = arr[i, j];
+                            arr[i, j] = temp;
+                        }
+            }
         }
+
 
 
         //----------------------------------------------------------------------------
         //----------------------------------------------------------------------------
         static void Main(string[] args)
         {
-/*
-            string name = Console.ReadLine();
 
-            GetName(ref name);
-            string name = Console.ReadLine();
-            GetName(ref name);
+            var array = GetArrayFromConsole(10);
+            
+            var sortedarray = SortArray(array);
+          
+            ShowArray(array,true);
 
-            Console.WriteLine(GetName);
-           // Console.WriteLine(oldname);
-            Console.WriteLine(name);
+
+
+            //string name = Console.ReadLine();
+
+            //GetName(ref name);
+            //string name = Console.ReadLine();
+            // GetName(ref name);
+
+            // Console.WriteLine(GetName);
+            // Console.WriteLine(oldname);
+            // Console.WriteLine(name);
             //Console.WriteLine(oldname);
 
             //var Myname = "Алекс";
@@ -225,27 +247,26 @@ namespace Task1_Mod5
             //Console.ReadKey();
 
 
-            int Myage = 32;
-            Console.WriteLine(Myage);
-            
+            //int Myage = 32;
+            //Console.WriteLine(Myage);
+
             //ChangeAge(Myage);
 
-            Console.WriteLine(Myage);
-            Console.ReadKey();            
-            //-----------------------------------------------------------------------
-            
-            var array = GetArrayFromConsole(10);
-            ShowArray(array,true);
-
-          
+            //Console.WriteLine(Myage);
+            //Console.ReadKey();            
             //-----------------------------------------------------------------------
 
-            (string UserName, string[] Dishes) DishesUser; //М5 - зд.1
+
+
+
+            //-----------------------------------------------------------------------
+
+            (string userName, string[] Dishes) DishesUser; //М5 - зд.1
 
             DishesUser.Dishes = new string[5];
 
             Console.WriteLine("Введите свое имя: ");
-            DishesUser.UserName = Console.ReadLine();
+            DishesUser.userName = Console.ReadLine();
 
             Console.WriteLine("Введите 5 своих любимых блюд.");
             for (int i = 0; i <= DishesUser.Dishes.Length; i++)
@@ -266,45 +287,54 @@ namespace Task1_Mod5
             }
 
             //-----------------------------------------------------------------------
-            var (name_new,age) = ("Александр", 27);
+            var (myName,myAge) = ("Александр", 32);
 
-            Console.WriteLine("Мое имя: {0}", name_new);
-            Console.WriteLine("Мой возраст: {0}", age);
+            Console.WriteLine("Мое имя: {0}", myName);
+            Console.WriteLine("Мой возраст: {0}", myAge);
 
-            Console.Write("Введите имя: ");
-            name_new = Console.ReadLine();
+
+            (string userName,int userAge) anketaUser;
+
+            Console.Write("Введите свое имя: ");
+            anketaUser.userName = Console.ReadLine();
                         
-            Console.Write("Введите возраст с цифрами: ");
-            age = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите свой возраст цифрами: ");
+            anketaUser.userAge = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Мое имя: {0}", name_new);
-            Console.WriteLine("Мой возраст: {0}", age);
+            Console.WriteLine("Ваше имя: {0}", anketaUser.userName);
+            Console.WriteLine("Ваш возраст: {0}", anketaUser.userAge);
 
             Console.ReadKey();
 
-/*            //-----------------------------------------------------------------------
+           //-----------------------------------------------------------------------
             var favcolors = new string[3];
 
             for (int i = 0; i < favcolors.Length; i++)
             {
-                favcolors[i] = ShowColorsUser(name, age);
+
+                favcolors[i] = ShowColorsUser(anketaUser.userName, anketaUser.userAge);
                 
             }
-
-            ShowColor();
-            
-            /*Console.WriteLine("Ваши любимые цвета: ");
-            foreach (var color in favcolors)
+                                   
+            Console.WriteLine("Ваши любимые цвета: ");
+            /*foreach (var userLikeColors in favcolors)
             {
-                Console.WriteLine(color);
+                Console.WriteLine(userLikeColors);
             }
             
             Console.ReadKey();
-*/
+            */
             //-----------------------------------------------------------------------
+            //ShowColors(anketaUser.userName, favcolors);
+            ShowColors();
 
-            
-          
+
+
+            int[,] arr = { { - 5, 6, 9, 1, 2, -3}, { - 8, 8, 1, 1, 2, -3}};
+
+            SortComplexArray(arr);
+
+
 
 
 
