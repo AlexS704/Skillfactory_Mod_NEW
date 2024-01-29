@@ -181,13 +181,13 @@ namespace Task1_Mod5
         }
 
         //----------------------------------------------------------------------------
-        static void ChangeName(ref string name)
+        static void ChangeName(ref string name) //служебное слово ref позволяет передавать по значению переменные ссылочного типа.
         {
-            Console.WriteLine("Введите свой возраст");
+            Console.WriteLine("Введите свое имя");
             name = Console.ReadLine();
 
         }
-
+        //----------------------------------------------------------------------------
         void GetAge(out string Name, out byte age)
         {
             Name = "Alexandr";
@@ -197,7 +197,7 @@ namespace Task1_Mod5
 
         //----------------------------------------------------------------------------
 
-        static void GetName(ref string name)
+        static void GetName(string name)
         {
             //oldname = "Александр";
             Console.WriteLine("Введите имя");
@@ -228,29 +228,25 @@ namespace Task1_Mod5
         static void Main(string[] args)
         {
 
-            var array = GetArrayFromConsole(10);
-            
-            var sortedarray = SortArray(array);
-          
+            var array = GetArrayFromConsole(10);            
+            var sortedarray = SortArray(array);          
             ShowArray(array,true);
 
 
 
-            //string name = Console.ReadLine();
+            string name = Console.ReadLine();
+            GetName(name);       
+       
+            Console.WriteLine(GetName);
 
-            //GetName(ref name);
-            //string name = Console.ReadLine();
-            // GetName(ref name);
-
-            // Console.WriteLine(GetName);
             // Console.WriteLine(oldname);
             // Console.WriteLine(name);
             //Console.WriteLine(oldname);
 
-            //var Myname = "Алекс";
-            //Console.WriteLine(Myname);
+            var Myname = "Алекс";
+            Console.WriteLine(Myname);
 
-            //ChangeName(ref Myname);
+            ChangeName(ref Myname); //служебное слово ref указывается при вызове метода
 
             //Console.WriteLine(Myname);
             //Console.ReadKey();
