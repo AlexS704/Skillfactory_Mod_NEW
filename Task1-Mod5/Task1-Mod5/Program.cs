@@ -57,7 +57,7 @@ namespace Task1_Mod5
 
         //---------------------------------------------------------------------------
 
-       static string GetDataFromConsole() => Console.ReadLine(); //такая запись возможна, только если в методе одна операция
+        static string GetDataFromConsole() => Console.ReadLine(); //такая запись возможна, только если в методе одна операция
 
         /* то же самое что и:
         static string GetDataFromConsole()
@@ -68,15 +68,18 @@ namespace Task1_Mod5
 
         //---------------------------------------------------------------------------
 
-        static int[] GetArrayFromConsole(int arrayDimension = 5)
+        static int[] GetArrayFromConsole(ref int arrayDimension) //через ref переменная передаетя по ссылке. Т.е. внутри метода данные можно изменить;
         {
+
+            arrayDimension = 6;
+
             var arrayUser = new int[arrayDimension];
-           
-                        
+
+
             for (int i = 0; i < arrayUser.Length; i++)
             {
                 Console.WriteLine("Введите элемент массива номер {0} ", i + 1);
-                arrayUser[i] = int.Parse(Console.ReadLine());                                              
+                arrayUser[i] = int.Parse(Console.ReadLine());
             }
 
             Console.WriteLine(arrayUser);
@@ -116,10 +119,10 @@ namespace Task1_Mod5
             {
                 Console.WriteLine(array[i]);
             }
-            */            
+            */
             return arrayUser;
         }
-          
+
 
         //----------------------------------------------------------------------------
 
@@ -140,7 +143,7 @@ namespace Task1_Mod5
                     }
                 }
             }
-          
+
             return arrayUser;
         }
 
@@ -188,7 +191,7 @@ namespace Task1_Mod5
 
         }
         //----------------------------------------------------------------------------
-        void GetAge(out string Name, out byte age)
+        static void GetAge(out string Name, out byte age)
         {
             Name = "Alexandr";
             age = 32;
@@ -197,9 +200,9 @@ namespace Task1_Mod5
 
         //----------------------------------------------------------------------------
 
-        static void GetName(string name)
+        static void GetName(out string name, out string oldname) //out - указывает на то, что передаваемый параметр является выходным и он должен быть изменен
         {
-            //oldname = "Александр";
+            oldname = "Александр";
             Console.WriteLine("Введите имя");
             name = Console.ReadLine();
         }
@@ -224,19 +227,28 @@ namespace Task1_Mod5
 
 
         //----------------------------------------------------------------------------
+
+        static void SumNumbers(ref int num1, in int num2, ref int num3, int num4)
+        {
+            num3 = 5;
+        }
+
+
+
         //----------------------------------------------------------------------------
         static void Main(string[] args)
         {
 
-            var array = GetArrayFromConsole(10);            
-            var sortedarray = SortArray(array);          
-            ShowArray(array,true);
+            int dimension = 4;
+            var array = GetArrayFromConsole(ref dimension);
+            var sortedarray = SortArray(array);
+            ShowArray(array, true);
 
 
 
             string name = Console.ReadLine();
-            GetName(name);       
-       
+            GetName(name);
+
             Console.WriteLine(GetName);
 
             // Console.WriteLine(oldname);
@@ -295,17 +307,17 @@ namespace Task1_Mod5
             }
 
             //-----------------------------------------------------------------------
-            var (myName,myAge) = ("Александр", 32);
+            var (myName, myAge) = ("Александр", 32);
 
             Console.WriteLine("Мое имя: {0}", myName);
             Console.WriteLine("Мой возраст: {0}", myAge);
 
 
-            (string userName,int userAge) anketaUser;
+            (string userName, int userAge) anketaUser;
 
             Console.Write("Введите свое имя: ");
             anketaUser.userName = Console.ReadLine();
-                        
+
             Console.Write("Введите свой возраст цифрами: ");
             anketaUser.userAge = Convert.ToInt32(Console.ReadLine());
 
@@ -314,16 +326,16 @@ namespace Task1_Mod5
 
             Console.ReadKey();
 
-           //-----------------------------------------------------------------------
+            //-----------------------------------------------------------------------
             var favcolors = new string[3];
 
             for (int i = 0; i < favcolors.Length; i++)
             {
 
                 favcolors[i] = ShowColorsUser(anketaUser.userName, anketaUser.userAge);
-                
+
             }
-                                   
+
             Console.WriteLine("Ваши любимые цвета: ");
             /*foreach (var userLikeColors in favcolors)
             /*Console.WriteLine("Ваши любимые цвета: ");
@@ -338,16 +350,18 @@ namespace Task1_Mod5
 
 
 
-            int[,] arr = { { - 5, 6, 9, 1, 2, -3}, { - 8, 8, 1, 1, 2, -3}};
-*/
+            int[,] arr = { { -5, 6, 9, 1, 2, -3 }, { -8, 8, 1, 1, 2, -3 } };
+
             SortComplexArray(arr);
 
 
-            
-          
-            
-          
 
+
+
+
+
+        }
+    }
 }
 
             
