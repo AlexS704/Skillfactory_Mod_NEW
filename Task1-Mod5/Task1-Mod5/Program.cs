@@ -247,7 +247,9 @@ namespace Task1_Mod5
 
 
             string name = Console.ReadLine();
-            GetName(name);
+            string oldname = Console.ReadLine();
+
+            GetName(out name, out oldname);
 
             Console.WriteLine(GetName);
 
