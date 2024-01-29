@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace Task1_Mod5
 {
     internal class Program
@@ -48,14 +50,21 @@ namespace Task1_Mod5
 
             }
 
-       
-            return color;
+
+            return color; //возвращает переменную в метод
         }
 
-        
+
         //---------------------------------------------------------------------------
 
        static string GetDataFromConsole() => Console.ReadLine(); //такая запись возможна, только если в методе одна операция
+
+        /* то же самое что и:
+        static string GetDataFromConsole()
+        {
+            return Console.ReadLine();
+        }
+        */
 
         //---------------------------------------------------------------------------
 
@@ -134,7 +143,7 @@ namespace Task1_Mod5
           
             return arrayUser;
         }
-           
+
         //----------------------------------------------------------------------------
 
         static void ShowColors(string userName = "Александр", params string[] favcolors)
@@ -156,7 +165,7 @@ namespace Task1_Mod5
                 temp = SortArray(array);
             }
 
-            foreach(var item in temp)
+            foreach (var item in temp)
             {
                 Console.WriteLine(item);
             }
@@ -168,7 +177,7 @@ namespace Task1_Mod5
         {
             Console.WriteLine("Введите свой возраст");
             age = Convert.ToInt32(Console.ReadLine());
-            
+
         }
 
         //----------------------------------------------------------------------------
@@ -176,10 +185,10 @@ namespace Task1_Mod5
         {
             Console.WriteLine("Введите свой возраст");
             name = Console.ReadLine();
-            
+
         }
 
-        void GetAge(out string Name,  out byte age)
+        void GetAge(out string Name, out byte age)
         {
             Name = "Alexandr";
             age = 32;
@@ -247,6 +256,9 @@ namespace Task1_Mod5
             //Console.ReadKey();
 
 
+            Console.Write("Введите свой возраст: ");
+            int userAge = Convert.ToInt32(Console.ReadLine());
+
             //int Myage = 32;
             //Console.WriteLine(Myage);
 
@@ -270,14 +282,14 @@ namespace Task1_Mod5
 
             Console.WriteLine("Введите 5 своих любимых блюд.");
             for (int i = 0; i <= DishesUser.Dishes.Length; i++)
-            {                
-                
+            {
+
                 if (i < DishesUser.Dishes.Length)
                 {
                     Console.Write("Блюдо {0}: ", i + 1);
                     DishesUser.Dishes[i] = Console.ReadLine();
                 }
-                
+
             }
             Console.WriteLine("Список ваших любимых блюд: ");
 
@@ -318,11 +330,11 @@ namespace Task1_Mod5
                                    
             Console.WriteLine("Ваши любимые цвета: ");
             /*foreach (var userLikeColors in favcolors)
+            /*Console.WriteLine("Ваши любимые цвета: ");
+            foreach (var color in favcolors)
+            /*Console.WriteLine("Ваши любимые цвета: ");
+            foreach (var color in favcolors)
             {
-                Console.WriteLine(userLikeColors);
-            }
-            
-            Console.ReadKey();
             */
             //-----------------------------------------------------------------------
             //ShowColors(anketaUser.userName, favcolors);
@@ -331,20 +343,22 @@ namespace Task1_Mod5
 
 
             int[,] arr = { { - 5, 6, 9, 1, 2, -3}, { - 8, 8, 1, 1, 2, -3}};
-
+*/
             SortComplexArray(arr);
 
 
+            
+          
+            
+          
 
-
-
-
-
-
-
-        }
-
-
-
-    }
 }
+
+            
+          
+
+
+
+
+
+
