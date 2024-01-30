@@ -126,10 +126,46 @@ namespace Task1_Mod5
 
         //----------------------------------------------------------------------------
 
-        static int[] SortArray(int[] arrayUser)
+        static void SortArray(in int[] arrayUser, out int[] sortedAsc, out int[] sortedDesc)
         {
-            //Сортировка принятого массива
-            int temp;
+            //Сортировка массивов
+
+            sortedAsc = SortArrayAsc(arrayUser);
+
+
+            sortedDesc = SortArrayDesc(arrayUser);
+                       
+
+        }
+
+            
+        static int[] SortArrayDesc(int[] arrayUser) //сортировка по убыванию
+        {
+            int timeVariable;
+
+            for (int i = 0; i < arrayUser.Length; i++)
+            {
+                for (int j = i + 1; j < arrayUser.Length; j++)
+                {
+                    if (arrayUser[i] < arrayUser[j])
+                    {
+                        timeVariable = arrayUser[i];
+                        arrayUser[i] = arrayUser[j];
+                        arrayUser[j] = timeVariable;
+                    }
+                }
+            }
+
+
+            return arrayUser;
+        }
+
+
+
+        static int[] SortArrayAsc(int[] arrayUser) //сортировка по возрастанию
+        {
+
+            int timeVariable;
 
             for (int i = 0; i < arrayUser.Length; i++)
             {
@@ -137,15 +173,18 @@ namespace Task1_Mod5
                 {
                     if (arrayUser[i] > arrayUser[j])
                     {
-                        temp = arrayUser[i];
+                        timeVariable = arrayUser[i];
                         arrayUser[i] = arrayUser[j];
-                        arrayUser[j] = temp;
+                        arrayUser[j] = timeVariable;
                     }
                 }
             }
 
+
             return arrayUser;
         }
+
+
 
         //----------------------------------------------------------------------------
 
@@ -165,7 +204,7 @@ namespace Task1_Mod5
             var temp = array;
             if (IsSort)
             {
-                temp = SortArray(array);
+                temp = SortArrayDesc(array);
             }
 
             foreach (var item in temp)
@@ -228,9 +267,11 @@ namespace Task1_Mod5
 
         //----------------------------------------------------------------------------
 
-        static void SumNumbers(ref int num1, in int num2, ref int num3, int num4)
+        static int SumNumbers(ref int num1, in int num2, out int num3, int num4)
         {
             num3 = 5;
+
+            return num3;
         }
 
 
@@ -241,7 +282,7 @@ namespace Task1_Mod5
 
             int dimension = 4;
             var array = GetArrayFromConsole(ref dimension);
-            var sortedarray = SortArray(array);
+            var sortedarray = SortArrayDesc(array);
             ShowArray(array, true);
 
 
