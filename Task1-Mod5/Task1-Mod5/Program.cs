@@ -3,6 +3,7 @@ using System;
 
 namespace Task1_Mod5
 {
+
     internal class Program
     {
         static string ShowColorsUser(string userName, int userAge)
@@ -134,11 +135,11 @@ namespace Task1_Mod5
 
 
             sortedDesc = SortArrayDesc(arrayUser);
-                       
+
 
         }
 
-            
+
         static int[] SortArrayDesc(int[] arrayUser) //сортировка по убыванию
         {
             int timeVariable;
@@ -275,6 +276,10 @@ namespace Task1_Mod5
         }
 
 
+       
+        
+
+        
 
         //----------------------------------------------------------------------------
         static void Main(string[] args)
@@ -398,14 +403,42 @@ namespace Task1_Mod5
             SortComplexArray(arr);
 
 
-
-
-
-
+            //5.4 Области видимости
+            Console.WriteLine(num1);
+            Console.WriteLine(Sum());
+            if (num1 > 0)
+            {
+                var num3 = 5;
+                Console.WriteLine(num1 + num3);
+                
+            }
+            
+            Console.ReadKey();
 
         }
+
+        static int num1 = 667;
+        static int Sum()
+        {
+            var num2 = 1; //num2 - локальная переменная для метода и не доступна за пределами метода
+            return num2 + num1;
+        }
+
+
+
     }
 }
+
+
+
+
+ 
+    
+
+        
+
+
+    
 
             
           
