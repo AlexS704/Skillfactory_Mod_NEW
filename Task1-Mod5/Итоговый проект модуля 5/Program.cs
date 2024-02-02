@@ -21,14 +21,51 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Введите свое имя: ");
+            string userName = (Console.ReadLine());
+
+            Console.WriteLine("Введите свою фамилию: ");
+            string userSurname = Console.ReadLine();
+
+            Console.WriteLine("Введите свой возраст: ");
+            byte userAge = Convert.ToByte(Console.ReadLine());
+            
+            Console.WriteLine("Наличие питомца: введите Да или Нет");
+            string petUser = Console.ReadLine();
+
+            bool havingPet;
+
+            if (petUser == "Да")
+            {
+                havingPet = true;
+            }
+            else
+            {
+                havingPet = false;
+            }
+
+            
+
+            Console.WriteLine(UserQuestionnaire(userName, userSurname, userAge, havingPet));
+
+            if (havingPet = true)
+            {
+                Console.WriteLine("Введите колличество Ваших питомцев: ");              
+                byte pet_populat = Convert.ToByte(Console.ReadLine());
+            }
+
+
+
+
+
         }
 
-        static void userQuestionnaire(string userName, string userSurname, byte userAge, bool pet, byte petPopulation)
+        static string UserQuestionnaire(string user_name, string user_surname, byte user_age, bool pet_user)
         {
 
+            (string user_name, string user_surname, byte user_age, bool pet_user, byte pet_population) dataUser;
 
-
+            return dataUser;
         }
 
 
