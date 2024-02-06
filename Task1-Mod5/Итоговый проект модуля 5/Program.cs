@@ -34,16 +34,22 @@ namespace Итоговый_проект_модуля_5
                 Console.WriteLine("Введите колличество Ваших питомцев: ");
 
                 byte pet_populat = Convert.ToByte(Console.ReadLine());
-                var petName = PetNameUser(ref pet_populat);
 
-                Console.WriteLine(petName);
+                DataValidationTest(pet_populat);
+
+                var arrayNamesPet = PetNameUser(ref pet_populat);
+
+                //Console.WriteLine(petName);
 
             }
 
             Console.WriteLine("Введите количество ваших любимых цветов: ");
             
             byte userColorCount = Convert.ToByte(Console.ReadLine());
-            ShowColorsUser(ref userColorCount, userAnketa.userName);
+
+            DataValidationTest(userColorCount);
+
+            var arrayColors = ShowColorsUser(ref userColorCount, userAnketa.userName);
                         
         }
 
@@ -61,6 +67,10 @@ namespace Итоговый_проект_модуля_5
 
             Console.WriteLine("Введите свой возраст: ");
             userAnketa.userAge = Convert.ToByte(Console.ReadLine());
+
+            byte testAge = userAnketa.userAge;
+
+            DataValidationTest(testAge);
 
             Console.WriteLine("Наличие питомца: введите да или нет");
             string petUser = Console.ReadLine();
@@ -118,16 +128,35 @@ namespace Итоговый_проект_модуля_5
                               
             }
 
+            /*
             Console.WriteLine("Ваши любимые цвета: ");
             foreach (var item in favcolors)
             {
                 Console.WriteLine(item);
             }
-           
+           */
+
             return favcolors;
         }
 
+        static bool DataValidationTest(byte userAge, byte pet_populat, byte userColorCount)
+        {
+            if (userAge == 0 || userAge < 0)
+            {
 
+                Console.WriteLine("Вы ввели неправильный возраст!");
+                return false;
+
+                if (pet_populat < 0)
+                {
+                    Console.WriteLine("Вы ввели не корректное число питомцев!");
+                    return false;
+                }
+            }
+
+
+           
+        }
 
 
 
