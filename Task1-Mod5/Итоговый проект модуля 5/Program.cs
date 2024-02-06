@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Итоговый_проект_модуля_5
 {
@@ -49,6 +51,8 @@ namespace Итоговый_проект_модуля_5
 
             DataValidationTest(userColorCount);
 
+            userAnketa.userAge = Convert.ToByte(Console.ReadLine());
+
             var arrayColors = ShowColorsUser(ref userColorCount, userAnketa.userName);
                         
         }
@@ -67,10 +71,17 @@ namespace Итоговый_проект_модуля_5
 
             Console.WriteLine("Введите свой возраст: ");
             userAnketa.userAge = Convert.ToByte(Console.ReadLine());
-
             byte testAge = userAnketa.userAge;
 
-            DataValidationTest(testAge);
+            bool testResult = DataValidationTest(testAge);
+
+            if (testResult == false)
+            {
+
+                Console.WriteLine("Введите корректный возраст");
+                userAnketa.userAge = Convert.ToByte(Console.ReadLine());
+
+            }
 
             Console.WriteLine("Наличие питомца: введите да или нет");
             string petUser = Console.ReadLine();
@@ -139,23 +150,21 @@ namespace Итоговый_проект_модуля_5
             return favcolors;
         }
 
-        static bool DataValidationTest(byte userAge, byte pet_populat, byte userColorCount)
+        static bool DataValidationTest(byte valueValidation, byte colorValidation = default)
         {
-            if (userAge == 0 || userAge < 0)
+            if (valueValidation < 0 )
+            {                              
+                return false;                           
+                        
+            }
+
+            if (colorValidation == 0)
             {
-
-                Console.WriteLine("Вы ввели неправильный возраст!");
                 return false;
-
-                if (pet_populat < 0)
-                {
-                    Console.WriteLine("Вы ввели не корректное число питомцев!");
-                    return false;
-                }
             }
 
 
-           
+            return true;
         }
 
 
