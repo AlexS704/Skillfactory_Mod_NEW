@@ -27,10 +27,8 @@ namespace Итоговый_проект_модуля_5
         static void Main(string[] args)
         {
 
-            var userAnketa = GetUserData();          
-            //byte userColorCount = ValidateTheData("Введите количество ваших любимых цветов: ");                
-           
-            //GetUserColors(ref userColorCount, userAnketa.userName);                       
+            GetUserData();         
+                                 
 
         }
 
