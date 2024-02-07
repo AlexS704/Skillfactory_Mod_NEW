@@ -12,9 +12,9 @@ namespace Итоговый_проект_модуля_5
  *  Наличие питомца;+
  *  Если питомец есть, то запросить количество питомцев;+
  *  Если питомец есть, вызвать метод, принимающий на вход количество питомцев и возвращающий массив их кличек(заполнение с клавиатуры); метод 2+
- *  Запросить количество любимых цветов;
- *  Вызвать метод, который возвращает массив любимых цветов по их количеству(заполнение с клавиатуры); метод 3
- *  Сделать проверку, ввёл ли пользователь корректные числа: возраст, количество питомцев, количество цветов в отдельном методе; метод 4
+ *  Запросить количество любимых цветов;+
+ *  Вызвать метод, который возвращает массив любимых цветов по их количеству(заполнение с клавиатуры); метод 3+
+ *  Сделать проверку, ввёл ли пользователь корректные числа: возраст, количество питомцев, количество цветов в отдельном методе; метод 4+
  *  Требуется проверка корректного ввода значений и повтор ввода, если ввод некорректен;
  *  Корректный ввод: ввод числа типа int больше 0.
  *  2. Метод, который принимает кортеж из предыдущего шага и показывает на экран данные.
@@ -27,62 +27,26 @@ namespace Итоговый_проект_модуля_5
         static void Main(string[] args)
         {
 
-            var userAnketa = UserQuestionnaire();           
-            Console.WriteLine(userAnketa);
+            var userAnketa = GetUserData();          
+            //byte userColorCount = ValidateTheData("Введите количество ваших любимых цветов: ");                
+           
+            //GetUserColors(ref userColorCount, userAnketa.userName);                       
 
-
-            if (userAnketa.havingPet == true)
-            {
-                Console.WriteLine("Введите колличество Ваших питомцев: ");
-
-                byte pet_populat = Convert.ToByte(Console.ReadLine());
-
-                DataValidationTest(pet_populat);
-
-                var arrayNamesPet = PetNameUser(ref pet_populat);
-
-                //Console.WriteLine(petName);
-
-            }
-
-            Console.WriteLine("Введите количество ваших любимых цветов: ");
-            
-            byte userColorCount = Convert.ToByte(Console.ReadLine());
-
-            DataValidationTest(userColorCount);
-
-            userAnketa.userAge = Convert.ToByte(Console.ReadLine());
-
-            var arrayColors = ShowColorsUser(ref userColorCount, userAnketa.userName);
-                        
         }
 
-        static (string userName, string userSurname, byte userAge, bool havingPet) UserQuestionnaire()
-
+        static (string userName, string userSurname, byte userAge, bool havingPet) GetUserData()
         {
 
             (string userName, string userSurname, byte userAge, bool havingPet) userAnketa;
 
-            Console.WriteLine("Введите свое имя: ");
+            Console.Write("Введите свое имя: ");
             userAnketa.userName = Console.ReadLine();
 
-            Console.WriteLine("Введите свою фамилию: ");
+            Console.Write("Введите свою фамилию: ");
             userAnketa.userSurname = Console.ReadLine();
-
-            Console.WriteLine("Введите свой возраст: ");
-            userAnketa.userAge = Convert.ToByte(Console.ReadLine());
-            byte testAge = userAnketa.userAge;
-
-            bool testResult = DataValidationTest(testAge);
-
-            if (testResult == false)
-            {
-
-                Console.WriteLine("Введите корректный возраст");
-                userAnketa.userAge = Convert.ToByte(Console.ReadLine());
-
-            }
-
+                       
+            userAnketa.userAge = ValidateTheData("Введите свой возраст: ");
+            
             Console.WriteLine("Наличие питомца: введите да или нет");
             string petUser = Console.ReadLine();
 
@@ -91,42 +55,56 @@ namespace Итоговый_проект_модуля_5
             if (petUser == "да")
             {
                 userAnketa.havingPet = true;
+
+                if (userAnketa.havingPet == true)
+                {
+                    byte pet_populat = ValidateTheData("Введите количество ваших питомцев: ");
+
+                    var arrayNamesPet = GetPetNames(ref pet_populat);
+                    byte userColorCount = ValidateTheData("Введите количество ваших любимых цветов: ");
+                    GetUserColors(ref userColorCount, userAnketa.userName);
+                    GetQuestionnaireData(userAnketa);
+
+                    Console.WriteLine("Клички ваших животных:");
+                    foreach (var item in arrayNamesPet)
+                    {
+                        Console.WriteLine(item);
+                    }                                                         
+
+                }
             }
             else
             {
                 userAnketa.havingPet = false;
-            }
-                             
-         
+                byte userColorCount = ValidateTheData("Введите количество ваших любимых цветов: ");
+                GetUserColors(ref userColorCount, userAnketa.userName);
+                GetQuestionnaireData(userAnketa);
+
+            }                      
+
             return userAnketa;
 
         }
 
-        static string[] PetNameUser(ref byte pet_populat)
+        static string[] GetPetNames(ref byte pet_populat)
         {
 
             string[] petNameArray = new string[pet_populat];
 
             for (int i = 0; i < petNameArray.Length; i++)
             {
-                Console.WriteLine("Введите имя питомца {0}", i + 1);
+                Console.WriteLine("Введите имя питомца {0}:", i + 1);
                 petNameArray[i] = Console.ReadLine();
-                                
+                                                
             }
-
-            Console.WriteLine("Клички ваших животных: ");
-            foreach (var item in petNameArray)
-            {
-                Console.WriteLine(item);
-            }
-
+                        
             return petNameArray;
         }
 
-        static string[] ShowColorsUser(ref byte countColor, string userName)        
+        static string[] GetUserColors(ref byte countColor, string userName)        
         {
 
-            Console.WriteLine("{0}" + $"{Environment.NewLine}Напишите свои любимые цвета", userName);
+            Console.WriteLine("{0}," + $"{Environment.NewLine}Напишите свои любимые цвета", userName);
 
             string[] favcolors = new string[countColor];
                         
@@ -134,37 +112,56 @@ namespace Итоговый_проект_модуля_5
             {
 
                 Console.Write(i + 1 + " цвет: ");
-
                 favcolors[i] = Console.ReadLine();
                               
             }
 
-            /*
+            
             Console.WriteLine("Ваши любимые цвета: ");
             foreach (var item in favcolors)
             {
                 Console.WriteLine(item);
             }
-           */
-
+           
             return favcolors;
         }
 
-        static bool DataValidationTest(byte valueValidation, byte colorValidation = default)
+        static byte ValidateTheData(string prompt)
         {
-            if (valueValidation < 0 )
-            {                              
-                return false;                           
-                        
-            }
+            byte result;
+            bool isValid;
 
-            if (colorValidation == 0)
+            do
             {
-                return false;
-            }
+                Console.Write(prompt);
+                string userInput = Console.ReadLine();
 
+                isValid = TryParseByte(userInput, out result) && result > 0;
 
-            return true;
+                if (!isValid)
+                {
+                    Console.WriteLine("Некорректный ввод. Пожалуйста, введите корректное значение.");
+                }
+
+            } while (!isValid);
+
+           
+
+            return result;
+        }
+
+        static bool TryParseByte(string input, out byte result)
+        {
+            return byte.TryParse(input, out result);
+        }
+
+        static void GetQuestionnaireData((string userName, string userSurname, byte userAge, bool havingPet) userAnketa)
+        {
+            
+            Console.WriteLine($"Имя: {userAnketa.userName}");
+            Console.WriteLine($"Фамилия: {userAnketa.userSurname}");
+            Console.WriteLine($"Возраст: {userAnketa.userAge}");
+            Console.WriteLine($"Наличие питомца: {userAnketa.havingPet}");
         }
 
 
