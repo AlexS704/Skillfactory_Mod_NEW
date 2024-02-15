@@ -1,4 +1,6 @@
-﻿namespace Mod6._3
+﻿using System.Drawing;
+
+namespace Mod6._3
 {
     internal class Program
     {
@@ -6,36 +8,30 @@
         {
             var department = GetCurrentDepartment();
         }
-
         static Department GetCurrentDepartment()
         {
             // logic;
         }
-
         enum TurnDirection
         {
             None = 0,
             Left,
             Right
         }
-
         class Company
         {
             public string Type = "Банк";
             public string Name;
         }
-
         class Department
         {
             public Company Company;
             public City City;
         }
-
         class City
         {
             public string Name = "Санкт-Петербург";
         }
-
         class Triangle
         {
             public double a;
@@ -56,7 +52,6 @@
             }
 
         }
-
         class Circle
         {
             public double radius;
@@ -71,7 +66,6 @@
                 double result = 2 * Math.PI * Math.Pow(radius,2);
             }
         }
-
         class Square
         {
             public double a;
@@ -87,7 +81,6 @@
             }
 
         }
-
         class Car
         {
             private double Fuel;
@@ -145,6 +138,91 @@
             public bool IsTurningRight()
             {
                 return turn == TurnDirection.Right;
+            }
+
+        }
+        class TrafficLight
+        {
+            private void ChangeColor(string color)
+            {
+                
+                
+            }
+
+            public string GetColor()
+            {
+                
+            }
+
+
+        }
+        class User
+        {
+            private int age;
+            private string login;
+            private string email;
+
+            public int Age
+            {
+                get
+                {
+                    return age;
+                }
+
+                set
+                {
+                    if(value < 18)
+                    {
+                        Console.WriteLine("Возраст должен быть не меньше 18");
+                    }
+                    else
+                    {
+                        age = value;
+                    }
+
+                }
+
+            }
+            public string Login
+            {
+                get
+                {
+                    return login;
+                }
+
+                set
+                {
+                    if(value.Length < 3)
+                    {
+                        Console.WriteLine("Логин должен быть не менее трех символов");
+                    }
+
+                    else
+                    {
+                        login = value;
+                    }
+                }
+
+            }
+
+            public  string Mail
+            {
+                get
+                {
+                    return email;
+                }
+
+                set
+                {
+                    if(value.Contains('@') == false)
+                    {
+                        Console.WriteLine("Почта введена неверно!");
+                    }
+                    else
+                    {
+                        email = value;
+                    }
+                }
             }
 
         }
