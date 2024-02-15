@@ -30,6 +30,7 @@
             Console.ReadKey();
 
         }
+
     }
 
     class Pen
@@ -91,6 +92,33 @@
         public int Version;
         public int[] Array;
 
+    class Company
+    {
+        public string Type;
+        public string Name;
+    }
+
+    class Department
+    {
+        public Company Company;
+        public City City;
+    }
+
+    class City
+    {
+        public string Name;
+    }
+
+    class Bus
+    {
+        public int? Load;
+
+        public void PrintStatus()
+        {
+            if (Load.HasValue && Load > 0){Console.WriteLine("В автобусе {0} пассажиров", Load.Value);}
+            else {Console.WriteLine("Автобус пуст!");}
+
+        }
     }
 
     class Obj
