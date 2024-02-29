@@ -6,32 +6,35 @@ namespace Mod6._3
     {
         static void Main(string[] args)
         {
-            var department = GetCurrentDepartment();
+            //var department = GetCurrentDepartment();
+
+            SmartHelper helper = new SmartHelper("Олег");
+            helper.Greetings("Грег");
+
+            Console.ReadKey();
         }
-        static Department GetCurrentDepartment()
+       /* static Department GetCurrentDepartment()
         {
             // logic;
         }
-        enum TurnDirection
-        {
-            None = 0,
-            Left,
-            Right
-        }
+       */
         class Company
         {
             public string Type = "Банк";
             public string Name;
         }
+
         class Department
         {
             public Company Company;
             public City City;
         }
+
         class City
         {
             public string Name = "Санкт-Петербург";
         }
+
         class Triangle
         {
             public double a;
@@ -52,6 +55,7 @@ namespace Mod6._3
             }
 
         }
+
         class Circle
         {
             public double radius;
@@ -66,6 +70,7 @@ namespace Mod6._3
                 double result = 2 * Math.PI * Math.Pow(radius,2);
             }
         }
+
         class Square
         {
             public double a;
@@ -81,6 +86,7 @@ namespace Mod6._3
             }
 
         }
+
         class Car
         {
             private double Fuel;
@@ -119,6 +125,7 @@ namespace Mod6._3
 
             }
 
+
             public string GetColor()
             {
                 return color;
@@ -138,9 +145,34 @@ namespace Mod6._3
             public bool IsTurningRight()
             {
                 return turn == TurnDirection.Right;
+            }            
+
+        }
+        enum TurnDirection
+        {
+            None = 0,
+            Left,
+            Right
+        }
+
+        enum FuelType
+        {
+            Gas = 0,
+            Electricity
+        }
+
+        class HybridCar : Car
+        {
+
+            public FuelType FuelType;
+
+            public void ChangeFuelType(FuelType type)
+            {
+                FuelType = type;
             }
 
         }
+
         class TrafficLight
         {
             private void ChangeColor(string color)
@@ -149,13 +181,14 @@ namespace Mod6._3
                 
             }
 
-            public string GetColor()
+            public void GetColor()
             {
                 
             }
 
 
         }
+
         class User
         {
             private int age;
@@ -227,6 +260,71 @@ namespace Mod6._3
 
         }
 
+        class Employee
+        {
+
+            public string Name;
+            public int Age;
+            public int Salary;
+
+        }
+
+        class ProjectManager : Employee
+        {
+            public string ProjectName;
+        }
+
+        class Developer : Employee
+        {
+            public string ProgrammingLanguage;
+        }
+
+        class Food { }
+       
+        class Fruit : Food { }
+        
+        class Vegetable : Food { }
+       
+        class Apple : Fruit { }
+
+        class Banana : Fruit { }
+
+        class Pear : Fruit { }
+
+        class Potato : Vegetable { }
+
+        class Carrot : Vegetable { }
+
+        class Obj
+        {
+            private string name;
+            private string owner;
+            private int length;
+            private int count;
+                        
+            public Obj(string name, string ownerName, int objLength, int count)
+            {
+                this.name = name;
+                owner = ownerName;
+                length = objLength;
+                this.count = count;
+            }
+        }
+
+        class SmartHelper
+        {
+            private string name;
+
+            public SmartHelper(string name)
+            {
+                this.name = name;
+            }
+
+            public void Greetings(string name)
+            {
+                Console.WriteLine("Привет, {0}, я интеллектуальный помощник {1}", name, this.name);
+            }
+        }
 
     }
 
