@@ -326,6 +326,36 @@ namespace Mod6._3
             }
         }
 
+        class SimpleClass
+        {
+            public static int MinValue = 100;
+            public int Value;
+            public SimpleClass(int value)
+            {
+                if (value < MinValue) Value = MinValue;
+                else Value = value;
+            }
+        }
+
+        class Obj_1
+        {
+            public string Name;
+            public string Description;
+            public static int MaxValue = 2000;
+        }
+
+        class Helper
+        {
+           
+            public static void Swap(ref int a, ref int b)
+            {
+                int temp = a;
+
+                a = b;
+                b = temp;                
+
+            }
+        }
     }
 
 }
