@@ -87,107 +87,7 @@ namespace Mod6._3
 
         }
 
-        class Car
-        {
-            private double Fuel;
-            
-            private int Mileage;
-
-            private string color;
-
-            private TurnDirection turn;
-
-            public Car()
-            {
-                Fuel = 50;
-                Mileage = 0;
-                color = "White";
-
-            }
-
-            private void Move()
-            {
-
-                Mileage++;
-                Fuel -= 0.5;
-
-            }
-
-            private void Turn(TurnDirection direction)
-            {
-                turn = direction;
-            }
-
-            public void FillTheCar()
-            {
-
-                Fuel = 50;
-
-            }
-
-
-            public string GetColor()
-            {
-                return color;
-            }
-
-            public void ChangColor(string newColor)
-            {
-                if (color != newColor)
-                    color = newColor;
-            }
-                
-            public bool IsTurningLeft()
-            {
-                return turn == TurnDirection.Left;
-            }
-
-            public bool IsTurningRight()
-            {
-                return turn == TurnDirection.Right;
-            }            
-
-        }
-        enum TurnDirection
-        {
-            None = 0,
-            Left,
-            Right
-        }
-
-        enum FuelType
-        {
-            Gas = 0,
-            Electricity
-        }
-
-        class HybridCar : Car
-        {
-
-            public FuelType FuelType;
-
-            public void ChangeFuelType(FuelType type)
-            {
-                FuelType = type;
-            }
-
-        }
-
-        class TrafficLight
-        {
-            private void ChangeColor(string color)
-            {
-                
-                
-            }
-
-            public void GetColor()
-            {
-                
-            }
-
-
-        }
+       
 
         class User
         {
@@ -341,7 +241,22 @@ namespace Mod6._3
         {
             public string Name;
             public string Description;
-            public static int MaxValue = 2000;
+            
+            public static int MaxValue;
+            public static int DaysInWeek;
+            public static string Parent;
+
+
+            //Инициализация статических переменных в статическом конструкторе
+            static Obj_1()
+            {
+               Parent = "System.Object";
+                DaysInWeek = 7;
+                MaxValue = 2000;
+
+            }
+
+
         }
 
         class Helper
@@ -355,7 +270,165 @@ namespace Mod6._3
                 b = temp;                
 
             }
+
+            
+        }
+
+        
+    }
+
+    //Статические классы часто используют для расположения в них каких-либо однородных операций, например, класс с вспомогательными
+    //функциями для работы с файлами, или функции для работы с математическими операциями (как пример: класс System.Math).
+    static class IntExtensions
+    {
+        public static int GetNegative(this int number)
+        {
+            if (number > 0)
+            {
+                return -number;
+            }
+            else
+            {
+                return number;
+            }
+        }
+
+        public static int GetPositive(this int number)
+        {
+            if (number < 0)
+            {
+                return -number;
+            }
+            else
+            {
+                return number;
+            }
         }
     }
+
+    class Order<T>
+    {
+        public T Number;
+        public string Description;
+    }
+
+    class Car
+    {
+        private double Fuel;
+
+        private int Mileage;
+
+        private string color;
+
+        private TurnDirection turn;
+
+        public Car()
+        {
+            Fuel = 50;
+            Mileage = 0;
+            color = "White";
+
+        }
+
+        private void Move()
+        {
+
+            Mileage++;
+            Fuel -= 0.5;
+
+        }
+
+        private void Turn(TurnDirection direction)
+        {
+            turn = direction;
+        }
+
+        public void FillTheCar()
+        {
+
+            Fuel = 50;
+
+        }
+
+
+        public string GetColor()
+        {
+            return color;
+        }
+
+        public void ChangColor(string newColor)
+        {
+            if (color != newColor)
+                color = newColor;
+        }
+
+        public bool IsTurningLeft()
+        {
+            return turn == TurnDirection.Left;
+        }
+
+        public bool IsTurningRight()
+        {
+            return turn == TurnDirection.Right;
+        }
+
+    }
+    enum TurnDirection
+    {
+        None = 0,
+        Left,
+        Right
+    }
+
+    enum FuelType
+    {
+        Gas = 0,
+        Electricity
+    }
+
+    class HybridCar : Car
+    {
+
+        public FuelType FuelType;
+
+        public void ChangeFuelType(FuelType type)
+        {
+            FuelType = type;
+        }
+
+    }
+
+    class TrafficLight
+    {
+        private void ChangeColor(string color)
+        {
+
+
+        }
+
+        public void GetColor()
+        {
+
+        }
+
+
+    }
+
+    class Car_1<T>
+    {
+        public T Engine;
+    }
+    class ElectricEngine
+    {
+
+    }
+
+    class GasEngine
+    {
+
+    }
+
+  
+
 
 }
