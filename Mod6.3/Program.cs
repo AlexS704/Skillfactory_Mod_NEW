@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Data;
+using System.Drawing;
 
 namespace Mod6._3
 {
@@ -426,6 +427,14 @@ namespace Mod6._3
     class GasEngine
     {
 
+    }
+
+    class Record<T1, T2>
+    {
+        public T1 id;
+        public T2 Value;
+        public DateTime Data;
+      
     }
 
   
