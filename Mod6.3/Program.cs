@@ -414,19 +414,64 @@ namespace Mod6._3
 
 
     }
+ 
 
-    class Car_1<T>
+   abstract class Car_1<TEngine> where TEngine : Engine
     {
-        public T Engine;
+        public TEngine Engine;
+
+        public abstract void ChangePart<TPart>(TPart newPart) where TPart : CarPart;
     }
-    class ElectricEngine
+
+    class ElectricCar: Car_1<ElectricEngine>
+    {
+        public override void ChangePart<TPart>(TPart newPart)
+        {
+            
+        }
+    }
+
+    class GasCar : Car_1<GasEngine>
+    {
+        public override void ChangePart<TPart>(TPart newPart)
+        {
+           
+        }
+    }
+
+    abstract class Engine
     {
 
     }
 
-    class GasEngine
+    class ElectricEngine : Engine
     {
 
+    }
+
+    class GasEngine : Engine
+    {
+
+    }
+
+    abstract class CarPart
+    {
+
+    }
+
+    class Battary : CarPart 
+    {
+    
+    }
+
+    class Differential : CarPart
+    {
+        
+    }
+
+    class Wheel : CarPart 
+    {
+    
     }
 
     class Record<T1, T2>
@@ -436,6 +481,7 @@ namespace Mod6._3
         public DateTime Data;
       
     }
+
 
   
 
