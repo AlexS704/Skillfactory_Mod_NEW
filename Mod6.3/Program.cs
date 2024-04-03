@@ -414,36 +414,11 @@ namespace Mod6._3
 
 
     }
- 
-
-   abstract class Car_1<TEngine> where TEngine : Engine
-    {
-        public TEngine Engine;
-
-        public abstract void ChangePart<TPart>(TPart newPart) where TPart : CarPart;
-    }
-
-    class ElectricCar: Car_1<ElectricEngine>
-    {
-        public override void ChangePart<TPart>(TPart newPart)
-        {
-            
-        }
-    }
-
-    class GasCar : Car_1<GasEngine>
-    {
-        public override void ChangePart<TPart>(TPart newPart)
-        {
-           
-        }
-    }
-
-    abstract class Engine
+        
+    class Engine
     {
 
     }
-
     class ElectricEngine : Engine
     {
 
@@ -454,25 +429,36 @@ namespace Mod6._3
 
     }
 
-    abstract class CarPart
+    class CarPart
     {
 
     }
 
-    class Battary : CarPart 
+    class Battery : CarPart
     {
-    
+
     }
 
     class Differential : CarPart
     {
+
+    }
+
+    class Wheel : CarPart
+    {
         
     }
 
-    class Wheel : CarPart 
+    class Car_1<TEngine> where TEngine : Engine
     {
-    
+        public TEngine Engine;
+
+        public virtual void ChangePart<TPart>(TPart newPart) where TPart : CarPart
+        {
+
+        }
     }
+
 
     class Record<T1, T2>
     {
