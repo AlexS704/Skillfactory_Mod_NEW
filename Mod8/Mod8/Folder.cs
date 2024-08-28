@@ -10,11 +10,14 @@ namespace Mod8
     {
         public List<string> Files {  get; set; } = new List<string>();
 
-        public string CreateNewDirectory(string nameFolder)
-        {
-            string result = "";
+        Dictionary<string, Folder> Folders = new Dictionary<string, Folder>();
 
-            return result;        
+                
+        public void CreateNewDirectory(string nameFolder)
+        {
+             Folders.Add(nameFolder, new Folder());     
+                                
+                  
         }
     }
 }
