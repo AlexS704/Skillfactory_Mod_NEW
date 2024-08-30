@@ -15,8 +15,9 @@ namespace Mod8
                 
         public void CreateNewDirectory(string nameFolder)
         {
-             Folders.Add(nameFolder, new Folder());     
-                                
+            Folders.Add(nameFolder, new Folder());
+            
+            Console.WriteLine($"Папка с именем {nameFolder} была создана.");                    
                   
         }
     }

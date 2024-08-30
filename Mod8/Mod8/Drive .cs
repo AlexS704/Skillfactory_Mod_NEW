@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Mod8
 {
-    internal class DiskInformation
+    internal class Drive
     {
-        public DiskInformation(string NameDisk, long SizeDisc, long FreeSpaceDisc)
+        public Drive(string NameDisk, long SizeDisc, long FreeSpaceDisc)
         {
             NameDisk = _nameDisc;
             SizeDisc = _sizeDisc;
