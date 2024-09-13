@@ -35,53 +35,53 @@
                 string[] dirs = Directory.GetFiles(dirName); //получение всех директорий корневого каталога
 
 
-                int countFolders = 0;
+                //int countFolders = 0;
                 foreach (string d in dirs) //выводим все директории
                 {
                     Console.WriteLine(d);
-                   countFolders++;                    
+                   //countFolders++;                    
                 }
 
-                Console.WriteLine($"Количество папок в списке: {countFolders}");
+                //Console.WriteLine($"Количество папок в списке: {countFolders}");
 
                 Console.WriteLine();
                 Console.WriteLine("Файлы:");
 
-                int countFiles = 0;
+                //int countFiles = 0;
                 string[] files = Directory.GetFiles(dirName); //Получаем все файлы корневого каталога
 
                 foreach (string f in files) //Вывод файлов
                 {
                     Console.WriteLine(f);
-                    countFiles++;
+                   // countFiles++;
                 }
 
-                Console.WriteLine($"Количество файлов в списке: {countFiles}");
+                //Console.WriteLine($"Количество файлов в списке: {countFiles}");
 
-                int result = countFolders + countFiles;
-                Console.WriteLine($"Всего объектов:{result}");
+                //int result = countFolders + countFiles;
+               // Console.WriteLine($"Всего объектов:{result}");
 
             }
 
-            ////через конструкцию try/catch
-            //try
-            //{
-            //    DirectoryInfo dirInfo = new DirectoryInfo(@"C:\\");
-            //    if (dirInfo.Exists)
-            //    {
-            //        Console.WriteLine(dirInfo.GetDirectories().Length + dirInfo.GetFiles().Length);
-            //    }
-            //}
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine(e.Message);
-            //}
+            //через конструкцию try/catch
+            try
+            {
+                DirectoryInfo dirInfo = new DirectoryInfo(@"C:\\");
+                if (dirInfo.Exists)
+                {
+                    Console.WriteLine(dirInfo.GetDirectories().Length + dirInfo.GetFiles().Length);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
             //через создание новой директории
-            DirectoryInfo dirInfo = new DirectoryInfo(@"С:\Users\luft");
-            if (!dirInfo.Exists)
-                dirInfo.Create();
-            dirInfo.CreateSubdirectory("NewFolder");
+            //DirectoryInfo dirInfo = new DirectoryInfo(@"С:\Users\luft");
+            //if (!dirInfo.Exists)
+            //    dirInfo.Create();
+            //dirInfo.CreateSubdirectory("NewFolder");
 
         }
 
