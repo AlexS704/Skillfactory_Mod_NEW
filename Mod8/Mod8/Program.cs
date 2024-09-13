@@ -26,44 +26,59 @@
         }
 
         static void GetCatalogs()
-        {
-            string dirName = @"C:\\"; //прописываем путь к корневой директории
+        {           
+            //через конструкцию try/catch            
 
-            if (Directory.Exists(dirName)) // Проверка на существование директории
+            try
             {
-                Console.WriteLine("Папки:");
-                string[] dirs = Directory.GetFiles(dirName); //получение всех директорий корневого каталога
-
-
-                //int countFolders = 0;
-                foreach (string d in dirs) //выводим все директории
+                DirectoryInfo dirInfo = new DirectoryInfo(@"C:\\NewDir");
+                if (dirInfo.Exists)
                 {
-                    Console.WriteLine(d);
-                   //countFolders++;                    
+                    Console.WriteLine("Каталог существует");
+                    //return;
                 }
+                dirInfo.Create();
+                Console.WriteLine("Каталог создан");
 
-                //Console.WriteLine($"Количество папок в списке: {countFolders}");
-
-                Console.WriteLine();
-                Console.WriteLine("Файлы:");
-
-                //int countFiles = 0;
-                string[] files = Directory.GetFiles(dirName); //Получаем все файлы корневого каталога
-
-                foreach (string f in files) //Вывод файлов
+                string dirName = @"C:\\";
+                
+                if (Directory.Exists(dirName))
                 {
-                    Console.WriteLine(f);
-                   // countFiles++;
+                    Console.WriteLine("Папки:");
+                    string[] dirs = Directory.GetDirectories(dirName);
+
+                    int countFolders = 0;
+                    foreach (string d in dirs) //выводим все директории
+                    {
+                        Console.WriteLine(d);
+                        countFolders++;                    
+                    }
+                    Console.WriteLine($"Количество папок в списке: {countFolders}");
+                    Console.WriteLine();
+                    Console.WriteLine("Файлы:");
+
+                    string[] files = Directory.GetFiles(dirName); //Получаем все файлы корневого каталога
+
+                    int countFiles = 0;
+                    foreach (string f in files) //Вывод файлов
+                    {
+                        Console.WriteLine(f);
+                        countFiles++;
+                    }
+
+                    Console.WriteLine($"Количество файлов в списке: {countFiles}");
+
+                    int result = countFolders + countFiles;
+                    Console.WriteLine($"Всего объектов через счетчик:{result}");
+
                 }
-
-                //Console.WriteLine($"Количество файлов в списке: {countFiles}");
-
-                //int result = countFolders + countFiles;
-               // Console.WriteLine($"Всего объектов:{result}");
 
             }
+            catch (Exception e)
+            {
+                Console.WriteLine("The process failed: {0}", e.ToString());
+            }
 
-            //через конструкцию try/catch
             try
             {
                 DirectoryInfo dirInfo = new DirectoryInfo(@"C:\\");
@@ -77,11 +92,8 @@
                 Console.WriteLine(e.Message);
             }
 
-            //через создание новой директории
-            //DirectoryInfo dirInfo = new DirectoryInfo(@"С:\Users\luft");
-            //if (!dirInfo.Exists)
-            //    dirInfo.Create();
-            //dirInfo.CreateSubdirectory("NewFolder");
+
+
 
         }
 
