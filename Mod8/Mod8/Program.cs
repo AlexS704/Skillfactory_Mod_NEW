@@ -40,8 +40,19 @@
                 dirInfo.Create();
                 Console.WriteLine("Каталог создан");
 
-                string dirName = @"C:\\";
                 
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("The process failed: {0}", e.ToString());
+                
+            }
+
+            finally
+            {
+                string dirName = @"C:\\";
+
                 if (Directory.Exists(dirName))
                 {
                     Console.WriteLine("Папки:");
@@ -51,7 +62,7 @@
                     foreach (string d in dirs) //выводим все директории
                     {
                         Console.WriteLine(d);
-                        countFolders++;                    
+                        countFolders++;
                     }
                     Console.WriteLine($"Количество папок в списке: {countFolders}");
                     Console.WriteLine();
@@ -72,11 +83,6 @@
                     Console.WriteLine($"Всего объектов через счетчик:{result}");
 
                 }
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("The process failed: {0}", e.ToString());
             }
 
             try
