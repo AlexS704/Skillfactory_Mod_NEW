@@ -2,28 +2,28 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
-        {
-            ////Получение информации о дисках
-            //DriveInfo[] drives = DriveInfo.GetDrives();
+        //static void Main(string[] args)
+        //{
+        //    ////Получение информации о дисках
+        //    //DriveInfo[] drives = DriveInfo.GetDrives();
 
-            //foreach (DriveInfo drive in drives)
-            //{
-            //    Console.WriteLine($"Название: {drive.Name}");
-            //    Console.WriteLine($"Тип: {drive.DriveType}");
-            //    if (drive.IsReady)
-            //    {
-            //        Console.WriteLine($"Объем: {drive.TotalSize}");
-            //        Console.WriteLine($"Свободно: {drive.TotalFreeSpace}");
-            //        Console.WriteLine($"Метка: {drive.VolumeLabel}");
-            //    }
-            //}
+        //    //foreach (DriveInfo drive in drives)
+        //    //{
+        //    //    Console.WriteLine($"Название: {drive.Name}");
+        //    //    Console.WriteLine($"Тип: {drive.DriveType}");
+        //    //    if (drive.IsReady)
+        //    //    {
+        //    //        Console.WriteLine($"Объем: {drive.TotalSize}");
+        //    //        Console.WriteLine($"Свободно: {drive.TotalFreeSpace}");
+        //    //        Console.WriteLine($"Метка: {drive.VolumeLabel}");
+        //    //    }
+        //    //}
 
-            //Получить все файлы и папки корневого каталога
+        //    //Получить все файлы и папки корневого каталога
 
-            GetCatalogs();
+        //    GetCatalogs();
 
-        }
+        //}
 
         static void GetCatalogs()
         {           
