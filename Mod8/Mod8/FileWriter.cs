@@ -11,39 +11,68 @@ namespace Mod8
     {
         public static void Main()
         {
-            string filePath = @"D:\\SkillFactory_test\Student.txt";
-            if(!File.Exists(filePath)) //проверяем существование файла
-            {
-                //если нет, создаем и записываем в строку
-                using (StreamWriter sw = File.CreateText(filePath))
-                {
-                    sw.WriteLine("Олег");
-                    sw.WriteLine("Дмитрий");
-                    sw.WriteLine("Иван");
-                }
-            }
-            //открываем файл и читаем его
-            using (StreamReader sr = File.OpenText(filePath))
-            {
-                string str = "";
-                while ((str = sr.ReadLine()) != null) //пока не кончатся строки - считываем из файла по одной и выводим в консоль
-                {
-                    Console.WriteLine(str);
-                }
-            }
-            
-            string filePathProd = @"D:\\SkillFactory\Mod8\Tasks_mod_8\Tasks_mod_8/Program.cs"; // Укажем путь
+            //string tempFile = Path.GetTempFileName(); // используем генерацию имени файла.
+            //var fileInfo = new FileInfo(tempFile); // Создаем объект класса FileInfo.
+
+            ////Создаем файл и записываем в него.
+            //using (StreamWriter sw = fileInfo.CreateText())
+            //{
+            //    sw.WriteLine("Игорь");
+            //    sw.WriteLine("Андрей");
+            //    sw.WriteLine("Сергей");
+            //}
+
+            ////Открываем файл и читаем из него.
+            //using (StreamReader sr = fileInfo.OpenText())
+            //{
+            //    string str = "";
+            //    while ((str = sr.ReadLine()) != null)
+            //    {
+            //        Console.WriteLine(str);
+            //    }
+            //}
+
+            //try
+            //{
+            //    string tempFile2 = Path.GetTempFileName();
+            //    var fileInfo2 = new FileInfo(tempFile2);
+
+            //    // Убедимся, что файл назначения точно отсутствует
+            //    fileInfo2.Delete();
+
+            //    // Копируем информацию
+            //    fileInfo.CopyTo(tempFile2);
+            //    Console.WriteLine($"{tempFile} скопирован в файл {tempFile2}.");
+            //    //Удаляем ранее созданный файл.
+            //    fileInfo.Delete();
+            //    Console.WriteLine($"{tempFile} удален.");
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine($"Ошибка: {e}");
+            //}
+                     
+                       
+            FileInfo fi = new FileInfo(@"C:\Users\pogorelov.aleksandr\source\repos\Skillfactory_Mod_NEW\Mod8\Mod8\FileWriter.cs"); // Указать корректный путь
 
             // Откроем файл и прочитаем его содержимое
-            using (StreamReader sr = File.OpenText(filePathProd))
+            using (StreamWriter sw = fi.AppendText())
+            {                
+                sw.WriteLine($"// Время запуска: {DateTime.Now}");
+            }
+
+            using (StreamReader sr = fi.OpenText())
             {
                 string str = "";
                 while ((str = sr.ReadLine()) != null)
                     Console.WriteLine(str);
             }
 
-
+           
         }
 
     }
 }
+
+
+// Время запуска: 17.09.2024 15:02:50
