@@ -1,6 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.Json;
+using System.Text;
+using System.Runtime.CompilerServices;
+using Serialization;
+
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
+
 namespace Serialization
 {
     [Serializable]
@@ -40,28 +46,20 @@ namespace Serialization
             Console.WriteLine($"Имя: {newPet.Name} ----------Возраст: {newPet.Age}");
 
             //------------------------------------------------------------------------
+            Contact contact = new Contact("Ivan", 89991112254,"dadad@faf.com");
+            BinarySerializer serializer = new BinarySerializer();
 
-            Contact contact = new Contact("Иван", 79995554563, "sd@gmail.com");
-            Console.WriteLine("Объект contact создан");
+            byte[] bytes = serializer.Serialize(contact);
+            Contact deserializedContact = serializer.Deserialize(bytes);
 
-            BinaryFormatter formatter = new BinaryFormatter();
-
-            using (FileStream fs = new FileStream("Contact.dat", FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, contact);
-                Console.WriteLine("Объект contact сериализован");
-            }
-
-
-            using(FileStream fs = new FileStream("contact.dat", FileMode.Open.Opencrea))
-            {
-
-            }
+            Console.WriteLine($"Name: {deserializedContact.Name}");
+            Console.WriteLine($"PhoneNumber: {deserializedContact.PhoneNumber}";
+            Console.WriteLine($"Email: {deserializedContact.Email}");
+            
 
         }
     }
-
-    [Serializable]
+        
     public class Contact
     {
         public string Name { get; set; }
@@ -76,5 +74,35 @@ namespace Serialization
         }
     }
 
+    public class BinarySerializer : IBinaryFormatter<Contact>
+    {
+        public byte[] Serialize(Contact contact)
+        {
+            using MemoryStream stream = new MemoryStream();
+            using BinaryWriter writer = new BinaryWriter(stream);
+
+            writer.Write(contact.Name);
+            writer.Write(contact.PhoneNumber);
+            writer.Write(contact.Email);
+            
+            return stream.ToArray();
+        }
+
+        public Contact Deserialize(byte[] bytes)
+        {
+            using MemoryStream stream = new MemoryStream(bytes);
+            using BinaryReader reader = new BinaryReader(stream);
+
+            string name = reader.ReadString();
+            long phoneNumber = reader.Readlong();
+            string email = reader.ReadString();
+
+            return new Contact(name, phoneNumber, email);
+        }
+    }
 
 }
+
+
+   
+
