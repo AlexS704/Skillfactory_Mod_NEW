@@ -6,9 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  
+	<ItemGroup>
+		<PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="8.0.0" />
+	</ItemGroup>
 
 </Project>
 
-<ItemGroup>
-  <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="8.0.0" />
-</ItemGroup>

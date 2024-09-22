@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option csharp_namespace = "Serialization_2.Serialization_2";
+
+message Contact
+{
+	string name = 1;
+	int64 phone_number = 2;
+	string email = 3;
+}
