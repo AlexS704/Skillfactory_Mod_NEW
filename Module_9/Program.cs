@@ -18,12 +18,17 @@ static void ShowMessage4()
     Console.WriteLine("Метод 4");
 }
 
-ShowDelegate showDelegate = ShowMessage1;
-showDelegate += ShowMessage2;
-showDelegate += ShowMessage3;
-showDelegate += ShowMessage4;
+ShowDelegate showDelegate1 = ShowMessage1;
+showDelegate1 += ShowMessage2;
 
-showDelegate.Invoke();
+ShowDelegate showDelegate2 = ShowMessage3;
+showDelegate2 += ShowMessage4;
+
+ShowDelegate showDelegate3 = showDelegate1 + ShowMessage2;
+
+
+
+showDelegate3.Invoke();
 
 Console.ReadKey();
 

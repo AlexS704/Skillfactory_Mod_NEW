@@ -12,11 +12,10 @@ static void AddNumbers(int x, int y)
 
 ShowDelegate showDelegate = Subtract;
 showDelegate += AddNumbers;
+showDelegate -= AddNumbers;
 
 showDelegate.Invoke(10, 3);
 
 Console.ReadKey();
-
-
 
 public delegate void ShowDelegate(int x, int y);
