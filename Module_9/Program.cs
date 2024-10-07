@@ -1,37 +1,30 @@
-﻿
-
-//Exception exception = new Exception("Ошибка");
-
-//exception.Data.Add("Дата создания:", DateTime.Now);
-//exception.HelpLink = "www.Google.com";
-
-//try
-//{       
-//       throw new ArgumentOutOfRangeException("Аргумент находится за пределами диапазона");
-//}
-//catch (ArgumentOutOfRangeException ex)
-//{
-
-//    Console.WriteLine(ex.Message );
-
-//}
-//finally
-//{
-//    Console.ReadKey();
-
-//}
-
-try
+﻿static void ShowMessage1()
 {
-    throw new RankException("Сообщение об ошибке");
+    Console.WriteLine("Метод 1");
 }
 
-catch (RankException ex)
+static void ShowMessage2()
 {
-    Console.WriteLine(ex.GetType());
+    Console.WriteLine("Метод 2");
 }
 
-finally
+static void ShowMessage3()
 {
-    Console.Read();
+    Console.WriteLine("Метод 3");
 }
+
+static void ShowMessage4()
+{
+    Console.WriteLine("Метод 4");
+}
+
+ShowDelegate showDelegate = ShowMessage1;
+showDelegate += ShowMessage2;
+showDelegate += ShowMessage3;
+showDelegate += ShowMessage4;
+
+showDelegate.Invoke();
+
+Console.ReadKey();
+
+public delegate void ShowDelegate();
