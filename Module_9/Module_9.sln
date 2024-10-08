@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkProjectTest_2", "..\Wor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkProjectTest_3", "..\WorkProjectTest_3\WorkProjectTest_3.csproj", "{77923A7E-031E-457F-BB35-354AD70235C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kovariantnost", "..\Kovariantnost\Kovariantnost.csproj", "{52C99C6E-0F6A-4B78-8656-F2B464F2B359}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{77923A7E-031E-457F-BB35-354AD70235C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77923A7E-031E-457F-BB35-354AD70235C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77923A7E-031E-457F-BB35-354AD70235C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52C99C6E-0F6A-4B78-8656-F2B464F2B359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52C99C6E-0F6A-4B78-8656-F2B464F2B359}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52C99C6E-0F6A-4B78-8656-F2B464F2B359}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52C99C6E-0F6A-4B78-8656-F2B464F2B359}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
