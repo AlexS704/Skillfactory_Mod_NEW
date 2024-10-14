@@ -7,13 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module_9", "Module_9.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkProjectTest", "..\WorkProjectTest\WorkProjectTest.csproj", "{122BE105-2766-4D56-96C5-BFDFE59AF50B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkProjectTest_1", "..\WorkProjectTest_1\WorkProjectTest_1.csproj", "{644C8D67-82BD-496C-85DF-BBC5CE050575}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkProjectTest_1", "..\WorkProjectTest_1\WorkProjectTest_1.csproj", "{644C8D67-82BD-496C-85DF-BBC5CE050575}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkProjectTest_2", "..\WorkProjectTest_2\WorkProjectTest_2.csproj", "{144D5A99-207F-42FE-B392-CECA8746FC10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkProjectTest_2", "..\WorkProjectTest_2\WorkProjectTest_2.csproj", "{144D5A99-207F-42FE-B392-CECA8746FC10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkProjectTest_3", "..\WorkProjectTest_3\WorkProjectTest_3.csproj", "{77923A7E-031E-457F-BB35-354AD70235C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkProjectTest_3", "..\WorkProjectTest_3\WorkProjectTest_3.csproj", "{77923A7E-031E-457F-BB35-354AD70235C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kovariantnost", "..\Kovariantnost\Kovariantnost.csproj", "{52C99C6E-0F6A-4B78-8656-F2B464F2B359}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kovariantnost", "..\Kovariantnost\Kovariantnost.csproj", "{52C99C6E-0F6A-4B78-8656-F2B464F2B359}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Final_Tasts_Mod9", "..\Final_Tasts_Mod9\Final_Tasts_Mod9.csproj", "{9B3B93CE-5973-445E-BC39-C323E30FCF03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{52C99C6E-0F6A-4B78-8656-F2B464F2B359}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52C99C6E-0F6A-4B78-8656-F2B464F2B359}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52C99C6E-0F6A-4B78-8656-F2B464F2B359}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B3B93CE-5973-445E-BC39-C323E30FCF03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B3B93CE-5973-445E-BC39-C323E30FCF03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B3B93CE-5973-445E-BC39-C323E30FCF03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B3B93CE-5973-445E-BC39-C323E30FCF03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
