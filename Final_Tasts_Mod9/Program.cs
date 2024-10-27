@@ -8,7 +8,7 @@
             var exception = new Exception[]
           {
                new ArgumentNullException("--------------ArgumentNullException---------"),
-               new ArgumentException("-----------ArgumentException-----------"),
+               new ArgumentException( "-----------ArgumentException-----------"),
                new MyCustomException("----------MyCustomException------"),
                new InvalidOperationException ("----------InvalidOperationException-------------"),
                new NotImplementedException ("----------NotImplementedException--------------")
