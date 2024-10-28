@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kovariantnost", "..\Kovaria
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Final_Tasks_Mod9", "..\Final_Tasts_Mod9\Final_Tasks_Mod9.csproj", "{9B3B93CE-5973-445E-BC39-C323E30FCF03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Final_Tasks2_Mod9", "..\Final_Tasks2_Mod9\Final_Tasks2_Mod9.csproj", "{146997F3-23CA-44E8-AA81-4DA9A85AFABF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Final_Tasks2_Mod9", "..\Final_Tasks2_Mod9\Final_Tasks2_Mod9.csproj", "{146997F3-23CA-44E8-AA81-4DA9A85AFABF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Final_Tsks2_v1_Mod9", "..\Final_Tsks2_v1_Mod9\Final_Tsks2_v1_Mod9.csproj", "{241D7E16-9DDD-4AB9-94E4-2BC341116F64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{146997F3-23CA-44E8-AA81-4DA9A85AFABF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{146997F3-23CA-44E8-AA81-4DA9A85AFABF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{146997F3-23CA-44E8-AA81-4DA9A85AFABF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{241D7E16-9DDD-4AB9-94E4-2BC341116F64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{241D7E16-9DDD-4AB9-94E4-2BC341116F64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{241D7E16-9DDD-4AB9-94E4-2BC341116F64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{241D7E16-9DDD-4AB9-94E4-2BC341116F64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
