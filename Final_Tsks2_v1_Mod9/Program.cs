@@ -1,4 +1,7 @@
-﻿namespace Final_Tsks2_v1_Mod9
+﻿
+using Final_Tasks_Mod9;
+
+namespace Final_Tsks2_v1_Mod9
 {
     internal class Program
     {
@@ -41,7 +44,7 @@
             }
 
             //Вспомогательный метод для вывода списка
-            private void PrintList()
+            public void PrintList()
             {
                 Console.WriteLine("Отсортированный список:");
                 foreach (var item in _list)
@@ -52,16 +55,21 @@
         }
         static void Main(string[] args)
         {
-
-
             List<string> listFamily = new List<string>();
-
-            int i = 0;
-            for (i = 0; i < 5; i++)
+            try
             {
-                Console.WriteLine($"Введите {i + 1} фамилию и нажмите Enter");
-                string Surname = Console.ReadLine();
-                listFamily.Add(Surname);
+                var exception = new MyCustomException("Ощибка:....");
+                int i = 0;
+                for (i = 0; i < 5; i++)
+                {
+                    Console.WriteLine($"Введите {i + 1} фамилию и нажмите Enter");
+                    string Surname = Console.ReadLine();
+                    listFamily.Add(Surname);
+                }                
+            }                
+            catch (MyCustomException ex)
+            {
+                Console.WriteLine(ex.Message);
             }
 
             var sorter = new WorldSorter(listFamily);
@@ -70,19 +78,38 @@
             sorter.OnSortAscending += sorter.AscendingSort;
             sorter.OnSortDescending += sorter.DescendingSort;
 
-            Console.WriteLine("Для сортировки списка А-Я введите 1. Для сортировки списка от Я-А введите 2");
+            bool exit = false;
 
-            int tag = Convert.ToInt32(Console.ReadLine());
-
-            switch (tag)
+            while (!exit)
             {
-                case 1: sorter.SortAscending(); break;
-                case 2: sorter.SortDescending(); break;
-                case 0: return;
-                default:
-                    Console.WriteLine("Неверный ввод.");
-                    break;
+                try
+                {
+                    Console.WriteLine("Для сортировки списка А-Я введите 1. Для сортировки списка от Я-А введите 2. Для выхода из программы введит 0");
+                    int tag = Convert.ToInt32(Console.ReadLine());
+
+                    switch (tag)
+                    {
+                        case 1: sorter.SortAscending();
+                            sorter.PrintList(); break;
+                        case 2: sorter.SortDescending();
+                            sorter.PrintList(); break;
+                        case 0: exit = true; return;
+                        default:
+                            Console.WriteLine("Неверный ввод.");
+                            break;
+                    }
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine($"Ошибка формата: {ex.Message}");
+                }
+                finally
+                {
+                   Console.WriteLine("Продолжаем работу...");
+                }
+
             }
+                    
         }
     }
         
