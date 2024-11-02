@@ -1,4 +1,7 @@
-﻿namespace Mod10_Tasks1
+﻿using System.Data;
+using System.Reflection.PortableExecutable;
+
+namespace Mod10_Tasks1
 {
     internal class Program
     {
@@ -15,39 +18,117 @@
             Console.ReadKey();
         }
     }
-   //переделать имена интерфейсов
-    public interface IFile
+    
+    public interface IWriter
     {
-        void ReadFile();
+        void Write();
     }
 
-    public interface IBinaryFile
+    public interface IReader
     {
-        void ReadBinary();
-
-        void OpenBinaryFile();
+        void Read();
     }
 
-    public class FileManager : IFile, IBinaryFile
+    public interface IMailer
     {
-        void IFile.ReadFile()
+        void SendMail();
+    }
+
+    public interface ICreatable
+    {
+        void Create();
+    }
+
+    public interface IDeletable
+    {
+        void Delete();
+    }
+
+    public interface IUpdatable
+    {
+        void Update();
+    }
+
+    public interface IBook
+    {
+        public void Read();
+    }
+
+    public interface IDevice
+    {
+        public void TurnOn();
+        public void TurnOff();
+    }
+
+    public interface IMessenger <out T>
+    {
+        T DeviceInfo();
+    }
+
+
+
+    public class FileManager : IWriter, IReader, IMailer
+    {
+        public void Read()
         {
-            Console.WriteLine("Чтение файла....");
+            throw new NotImplementedException();
         }
 
-        void IBinaryFile.ReadBinary()
+        public void SendMail()
         {
-            Console.WriteLine("Чтение бинарного файла....");
+            throw new NotImplementedException();
         }
 
-        void IBinaryFile.OpenBinaryFile()
+        public void Write()
         {
-            Console.WriteLine("Открытие бинарного файла");
+            throw new NotImplementedException();
+        }
+    }
+
+    public class Entity : ICreatable, IDeletable, IUpdatable
+    {
+        public void Create()
+        {
+            throw new NotImplementedException();
         }
 
-        public void OpenSource()
+        public void Delete()
         {
-            Console.WriteLine("Открытие строки поиска");
+            throw new NotImplementedException();
         }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class ElectronicBook : IBook, IDevice
+    {
+        void IDevice.TurnOff()
+        {
+            throw new NotImplementedException();
+        }
+        void IDevice.TurnOn()
+        {
+            throw new NotImplementedException();
+        }
+        void IBook.Read()
+        {
+            throw new NotImplementedException();
+        }
+
+
+    }
+
+    public class Phone { }
+    public class Computer { }
+
+    public class  Viber : IMessenger <Phone>
+    {
+       public Phone DeviceInfo()
+        {
+            return null;
+        } 
     }
 }
