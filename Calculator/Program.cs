@@ -2,24 +2,37 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Console.WriteLine("Введите первое число");
-            string inputUser = "";
+            ISummation summation = new Calculator();
+
+            double x, y;
 
             while (true)
             {
-                inputUser = Console.ReadLine();
+                Console.Write("Введите первое число: ");
+                string inputX = Console.ReadLine();
+
+                Console.Write("Введите второе число: ");
+                string inputY = Console.ReadLine();
+
                 try
                 {
-                    double.Parse(inputUser);
+                    x = double.Parse(inputX);
+                    y = double.Parse(inputY);
+
+                    double result = summation.ValueSumm(x, y);
+                    Console.WriteLine($"Сумма: {result}");
+
+                    break;
                 }
 
                 catch (FormatException)
                 {
-                    Console.WriteLine("Ошибка. Вы ввели нечисловые данные");
+                    Console.WriteLine("Некорректный ввод. Поробуйте еще раз.");
                 }
 
+              
             }
         }
     }

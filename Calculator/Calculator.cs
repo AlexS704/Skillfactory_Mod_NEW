@@ -6,19 +6,12 @@ using System.Threading.Tasks;
 
 namespace Calculator
 {
-    internal class Calculator : ISummation
+    public class Calculator : ISummation
     {
-        private double _x;
-        private double _y;
-        public Calculator(double x, double y)
+        public double ValueSumm(double x, double y)
         {
-            SetX(x);
-            SetY(y);            
+            return x + y;
         }
 
-       
-        
-        double ISummation.ValueSumm(double x, double y) { return x + y; }
-       
     }
 }

@@ -8,6 +8,6 @@ namespace Calculator
 {
     internal interface ISummation
     {
-        public double ValueSumm(double x, double y);
+        double ValueSumm(double x, double y);
     }
 }
