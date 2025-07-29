@@ -1,4 +1,5 @@
-﻿namespace Task12._3._3
+﻿
+namespace Task12._3._3
 {
     
     // Реализуйте метод, который будет возвращать индекс элемента в отсортированном массиве, 
@@ -11,7 +12,17 @@
     {
         static void Main(string[] args)
         {
-           
+            int[] array = {1, 2, 3, 4, 5, 10, 12, 14, 19};
+            int element = 11;
+
+            int index = Array.BinarySearch(array, element);
+
+            if (index < 0) 
+            { 
+                int insertionIndex = ~index;
+            }
         }
+
+       
     }
 }
