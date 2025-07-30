@@ -12,17 +12,39 @@ namespace Task12._3._3
     {
         static void Main(string[] args)
         {
-            int[] array = {1, 2, 3, 4, 5, 10, 12, 14, 19};
-            int element = 11;
+            //int[] array = {1, 2, 3, 4, 5, 10, 12, 14, 19};
+            //int element = 11;
 
-            int index = Array.BinarySearch(array, element);
+            //int index = Array.BinarySearch(array, element);
+            //Console.WriteLine(index);
 
-            if (index < 0) 
-            { 
-                int insertionIndex = ~index;
-            }
+            //if (index < 0) 
+            //{ 
+            //    index = ~index;
+            //}
+
+            //int[] newArray = new int[array.Length + 1];
+            //Array.Copy(array, 0, newArray, 0, index);
+
+            //newArray[index] = element;
+
+            //Array.Copy(array, index, newArray, index + 1, array.Length-index);
+
+            //Console.WriteLine(string.Join(", ", newArray));
         }
 
-       
+        static int GetIndex(int[] array, int element)
+        {
+            int index;
+            for (index = 0; index < array.Length; index++)
+            {
+                if (array[index] > element)
+                    return index;
+            }
+
+            return index;
+        }
+
+
     }
 }
