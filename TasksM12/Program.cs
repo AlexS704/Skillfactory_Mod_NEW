@@ -1,40 +1,41 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using TasksM12;
 using BenchmarkDotNet.Attributes;
+using System.Text;
+using TasksM12;
 
-static void Greetings()
-{
-    Console.WriteLine("Как Вас зовут?");
-    var userName = Console.ReadLine();
-    var greetings = "Привет," + userName;
-    Console.WriteLine(greetings);
-}
+//static void Greetings()
+//{
+//    Console.WriteLine("Как Вас зовут?");
+//    var userName = Console.ReadLine();
+//    var greetings = "Привет," + userName;
+//    Console.WriteLine(greetings);
+//}
 
-static void ArrayFilling()
-{
-    Console.WriteLine("Сколько элементов будет в массиве?");
-    var count = Int32.Parse(Console.ReadLine());
-    var array = new string[count];
+//static void ArrayFilling()
+//{
+//    Console.WriteLine("Сколько элементов будет в массиве?");
+//    var count = Int32.Parse(Console.ReadLine());
+//    var array = new string[count];
 
-    for (int i = 0; i < count; i++)
-    {
-        array[i] = Console.ReadLine();
-    }
+//    for (int i = 0; i < count; i++)
+//    {
+//        array[i] = Console.ReadLine();
+//    }
 
-    Console.WriteLine("Все элементы записаны");
-}
+//    Console.WriteLine("Все элементы записаны");
+//}
 
-static void AgeVerification()
-{
-    Console.WriteLine("Введите свой возраст: ");
-    var age = Int32.Parse(Console.ReadLine());
+//static void AgeVerification()
+//{
+//    Console.WriteLine("Введите свой возраст: ");
+//    var age = Int32.Parse(Console.ReadLine());
 
-    if (age > 13)
-    {
-        Console.WriteLine("Вы успешно зарегистрированы");
-    }
-    else { Console.WriteLine("Пользователи младше 14 лет не могут быть зерегистрированы"); }
-}
+//    if (age > 13)
+//    {
+//        Console.WriteLine("Вы успешно зарегистрированы");
+//    }
+//    else { Console.WriteLine("Пользователи младше 14 лет не могут быть зерегистрированы"); }
+//}
 
 //Задание 12.1.5
 //static void ShowAds()
@@ -69,9 +70,44 @@ static void AgeVerification()
 //    ShowAds();
 //}
 
-//Задание 12.4.1
-Testing testing = new Testing();
+////Задание 12.4.1
+//Testing testing = new Testing();
 
-//testing.UseString();
-testing.UseStringBuilder();
+////testing.UseString();
+//testing.UseStringBuilder();
+
+//Задание 12.4.2
+
+UseString(70000);
+Console.WriteLine("Ready to switch");
+Console.ReadKey();
+
+UseStringBuilder(70000);
+Console.ReadKey();
+
+static string UseString(int n)
+{
+    string value = "";
+
+    for (int i = 0; i < n; i++)
+    {
+        value += i.ToString();
+        value += " ";
+    }
+
+    return value;
+}
+
+static string UseStringBuilder(int n)
+{
+    StringBuilder builder = new StringBuilder();
+
+    for (int i = 0; i < n; i++)
+    {
+        builder.Append(i.ToString());
+        builder.Append(" ");
+    }
+
+    return builder.ToString();
+}
 
