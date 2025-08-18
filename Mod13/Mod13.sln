@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36301.6 d17.14
+VisualStudioVersion = 17.14.36301.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasksMod13", "TasksMod13\TasksMod13.csproj", "{99BCAB72-7CA8-4287-BB8D-2FEA5C12FD4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasksMod13.2", "TasksMod13.2\TasksMod13.2.csproj", "{F3C04FBB-5129-475A-BDE6-9DA0AF6D4418}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{99BCAB72-7CA8-4287-BB8D-2FEA5C12FD4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99BCAB72-7CA8-4287-BB8D-2FEA5C12FD4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99BCAB72-7CA8-4287-BB8D-2FEA5C12FD4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3C04FBB-5129-475A-BDE6-9DA0AF6D4418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3C04FBB-5129-475A-BDE6-9DA0AF6D4418}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3C04FBB-5129-475A-BDE6-9DA0AF6D4418}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3C04FBB-5129-475A-BDE6-9DA0AF6D4418}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
