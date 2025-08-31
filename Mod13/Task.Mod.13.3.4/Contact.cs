@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace Task.Mod._13._3._4
 {
-    public class Contact // модель класса
+    public class Contact
     {
-        public Contact(string name, long phoneNumber, String email) // метод-конструктор
+        public Contact(long phoneNumber, String email) // метод-конструктор
         {
-            Name = name;
+            //Name = name;
             PhoneNumber = phoneNumber;
             Email = email;
+            //IdKey = idkey;
         }
 
-        public String Name { get; }
-        public long PhoneNumber { get; }
-        public String Email { get; }
+        //public String Name { get; }
+        public long PhoneNumber { get; set; }
+        public String Email { get; set; }
+        //public int IdKey { get; set; }
     }
 }
